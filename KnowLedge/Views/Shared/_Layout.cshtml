@@ -1,0 +1,14 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/css/global.v5.css" rel="stylesheet" />
+</head>
+<body>
+    @RenderBody()
+    <script src="~/lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="~/lib/layui/layui.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>

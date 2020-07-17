@@ -1,0 +1,128 @@
+﻿<style>
+    .layui-nav .layui-nav-child dd:hover ul {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 99px;
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,.12);
+        border: 1px solid #d2d2d2;
+        border-radius: 2px;
+    }
+
+    /*放上去之前掩藏*/
+    .layui-nav .layui-nav-child dd ul {
+        display: none;
+    }
+
+        .layui-nav .layui-nav-child dd ul a {
+            font-size: 12px;
+        }
+
+            .layui-nav .layui-nav-child dd ul a:hover {
+                background: #f0f0f0;
+            }
+
+    .arrow-right {
+        width: 0;
+        height: 0;
+        border-top: 5px dashed transparent;
+        border-bottom: 5px dashed transparent;
+        border-left: 5px solid #777;
+        font-size: 0;
+    }
+</style>
+<div class="layui-header header">
+    <div class="main">
+
+        <ul class="layui-nav layui-nav-left" id="headmenu" lay-filter="filter">
+            <a href="/home/index" title="Fly" style="color: #5FB878; vertical-align: middle; font-size: 22px; display: inline-block; padding-top: 3px; font-family: Andalus">TNBLOG</a>
+
+            <li class="layui-nav-item nav-left">
+                <a href="/home/index">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">分类</a>
+                <dl class="layui-nav-child">
+                    <dd style="position: relative">
+                        <a href="/Nav/1">NET 
+                             <div style="display: inline-block; position: absolute; right: 9px; top: 12px" class="arrow-right"></div>
+                        </a>
+                        <ul>
+                            <li><a href="/Nav/2">.NET CORE</a></li>
+                            <li><a href="/Nav/3">.NET MVC</a></li>
+                            <li><a href="#">EF</a></li>
+                            <li><a href="#">WCF</a></li>
+                        </ul>
+                    </dd>
+                    <dd><a href="/Nav/5">JAVA</a>
+                    </dd>
+                    <dd><a href="/Nav/8">PYTHON</a></dd>
+                    <dd><a href="/Nav/18">云服务</a></dd>
+                    <dd><a href="/Nav/19">Nginx</a></dd>
+                    <dd><a href="/Nav/14">前端</a></dd>
+                    <dd>
+                        <a href="#">缓存 
+                           <div style="display: inline-block; position: absolute; right: 9px; top: 12px" class="arrow-right"></div>
+                        </a>
+                        <ul>
+                            <li><a href="/Nav/13">Redis</a></li>
+                            <li><a href="#">Memcached</a></li>
+                        </ul>
+                    </dd>
+                    <dd><a href="/NAV/Other">其他</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">问答</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">资源</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="/home/about">关于</a>
+            </li>
+        </ul>
+
+        <ul class="layui-nav layui-layout-right layui-nav-right" lay-filter="filter">
+            @if (ViewBag.islogin == null)
+            {
+
+                <li class="layui-nav-item">
+                    <a href="~/login/login?url=account/index">登录@*<span class="layui-badge-dot"></span>*@</a>
+                </li>
+            }
+            else
+            {
+               // DAL.UserInfo ui = ViewBag.ui;    
+                                 
+                <li class="layui-nav-item">
+                    <a href="/account/index">
+                        <img src="~/content/static/images/head.jpg" class="layui-nav-img">111</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/article/myarticles">个人中心</a></dd>
+                        <dd><a href="/login/ExitLogin?jurl=home/index">退了</a></dd>
+                    </dl>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+    /*
+    layui.use('element', function () {
+
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            //layer.msg(elem.text());
+        });
+        element.init();
+    });*/
+
+</script>

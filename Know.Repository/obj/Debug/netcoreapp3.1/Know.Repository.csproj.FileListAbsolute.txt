@@ -1,0 +1,11 @@
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.deps.json
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.dll
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.pdb
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.IRepository.dll
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.IRepository.pdb
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csprojAssemblyReference.cache
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfoInputs.cache
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CopyComplete
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.dll
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.pdb

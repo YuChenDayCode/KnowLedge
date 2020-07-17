@@ -1,0 +1,11 @@
+C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.deps.json
+C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.dll
+C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.pdb
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfoInputs.cache
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.dll
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.pdb
+C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.IRepository.dll
+C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.IRepository.pdb
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csprojAssemblyReference.cache
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csproj.CopyComplete

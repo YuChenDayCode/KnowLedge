@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "UrHUpaVIiwvVu729JqTiYGknCtSfZZcYKvajFoRaIBoAymd0VRhO8OdKFgJmjT0AdpHHhLsCGl+iu77AlEYQLw==",
+  "success": true,
+  "projectFilePath": "C:\\Hello World\\.NET\\KnowLedge\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yuche\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.5\\microsoft.extensions.configuration.abstractions.3.1.5.nupkg.sha512",
+    "C:\\Users\\yuche\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.5\\microsoft.extensions.primitives.3.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

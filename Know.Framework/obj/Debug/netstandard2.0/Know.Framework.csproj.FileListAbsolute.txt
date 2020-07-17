@@ -1,0 +1,8 @@
+C:\Hello World\.NET\KnowLedge\Know.Framework\bin\Debug\netstandard2.0\Know.Framework.deps.json
+C:\Hello World\.NET\KnowLedge\Know.Framework\bin\Debug\netstandard2.0\Know.Framework.dll
+C:\Hello World\.NET\KnowLedge\Know.Framework\bin\Debug\netstandard2.0\Know.Framework.pdb
+C:\Hello World\.NET\KnowLedge\Know.Framework\obj\Debug\netstandard2.0\Know.Framework.AssemblyInfoInputs.cache
+C:\Hello World\.NET\KnowLedge\Know.Framework\obj\Debug\netstandard2.0\Know.Framework.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Framework\obj\Debug\netstandard2.0\Know.Framework.dll
+C:\Hello World\.NET\KnowLedge\Know.Framework\obj\Debug\netstandard2.0\Know.Framework.pdb
+C:\Hello World\.NET\KnowLedge\Know.Framework\obj\Debug\netstandard2.0\Know.Framework.csprojAssemblyReference.cache
