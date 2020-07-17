@@ -30,10 +30,16 @@ namespace KnowLedge
                 option.Filters.Add<CustomExceptionFilterAttribute>();//全局注册过滤器
             });
 
+
+
+
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSession();
+            services.AddResponseCaching();//使用中间件缓存页面 区别于过滤器方式缓存，可以不过view与action
+
+
 
             services.AddTransient<ITest, Test>();
             services.AddTransient<Testbll>();
@@ -92,6 +98,7 @@ namespace KnowLedge
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseMiddleware<ContactProMiddleWare>(); //中间件注册
 
