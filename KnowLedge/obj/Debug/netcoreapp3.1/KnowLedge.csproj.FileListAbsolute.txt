@@ -437,3 +437,8 @@ C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\Microsoft.Extens
 C:\Hello World\.NET\KnowLedge\KnowLedge\obj\Debug\netcoreapp3.1\KnowLedge.MvcApplicationPartsAssemblyInfo.cs
 C:\Hello World\.NET\KnowLedge\KnowLedge\obj\Debug\netcoreapp3.1\KnowLedge.MvcApplicationPartsAssemblyInfo.cache
 C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\log4net.config
+C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\Know.Core.dll
+C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\Know.Core.pdb
+C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\Know.Model.dll
+C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\Know.Model.pdb
+C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Debug\netcoreapp3.1\ConfigResource\mysqlconfig.xml

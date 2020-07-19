@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Know.Business\Know.Business.csproj" />
+    <ProjectReference Include="..\Know.Core\Know.Core.csproj" />
     <ProjectReference Include="..\Know.IRepository\Know.IRepository.csproj" />
     <ProjectReference Include="..\Know.Repository\Know.Repository.csproj" />
   </ItemGroup>

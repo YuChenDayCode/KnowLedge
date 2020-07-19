@@ -1,4 +1,5 @@
 ﻿using Know.IRepository;
+using Know.IRepository.IRepository;
 using System;
 
 namespace Know.Business

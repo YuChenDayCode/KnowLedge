@@ -9,3 +9,7 @@ C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repos
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CopyComplete
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.dll
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.pdb
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Core.dll
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Model.dll
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Model.pdb

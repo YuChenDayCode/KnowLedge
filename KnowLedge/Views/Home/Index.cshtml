@@ -80,7 +80,7 @@
                         <div class="layui-card-body">
                             <div class="caption-subject uppercase" style="font-size: 18px; color: #444; font-weight: 600">
                                 <h2>
-                                    <a href="/Home/Answer" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.name}}</a>
+                                    <a href="/Home/Answer" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.titile}}</a>
                                 </h2>
                             </div>
                             <p class="autor">
@@ -260,7 +260,7 @@
         <form>
             <div class="question-content">
                 <div class="layui-form-item">
-                    <input type="text" name="title" v-model="question.q_title"  lay-verify="required" placeholder="请输入问题标题" autocomplete="off" class="layui-input">
+                    <input type="text" name="title" v-model="question.q_title" lay-verify="required" placeholder="请输入问题标题" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <textarea placeholder="请输入问题描述" class="layui-textarea" v-model="question.q_descc"></textarea>
@@ -284,19 +284,22 @@
         new Vue({
             el: "#warp",
             data: {
-                q_title:"name",
-                question: {q_tags:"1,2,3",q_descc:"1231233",q_title:"name"},
-                list: [
-                    { "id": 1, "name": "oracle数据库表dual的讲解", "desc": "我希望有个如你一般的人我还是很喜欢你，像日光洒满天地，温柔惬意。先提个问 ：oracle数据库里dual表是什么表？...", author: "陪你听风", createtime: "2020-06-05", fromtag: "其他" },
-                    { "id": 2, "name": "屏幕截图1", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" },
-                    { "id": 3, "name": "屏幕截图2", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" }
-                ]
+                q_title: "name",
+                question: { q_tags: "1,2,3", q_descc: "1231233", q_title: "name" },
+                list: [ ]
+                   //{ "id": 1, "name": "oracle数据库表dual的讲解", "desc": "我希望有个如你一般的人我还是很喜欢你，像日光洒满天地，温柔惬意。先提个问 ：oracle数据库里dual表是什么表？...", author: "陪你听风", createtime: "2020-06-05", fromtag: "其他" },
+                   //{ "id": 2, "name": "屏幕截图1", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" },
+                   //{ "id": 3, "name": "屏幕截图2", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" }]
+               
+            },
+            mounted() {
+                this.InitData();
             },
             methods: {
-                download: function () {
-                    $.get('/Home/login', {}, function (data) {
-                        console.log(data);
-
+                InitData: function () {
+                    var myobj = this;
+                    $.get('/Home/GetQuestion', {}, function (data) {
+                        myobj.list = data;
                     });
                 }
             }

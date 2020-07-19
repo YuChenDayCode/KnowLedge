@@ -1,22 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Core.Utility.Filter;
 using Core.Utility.MiddleWare;
 using Know.Business;
-using Know.IRepository;
+using Know.Business.Business;
+using Know.IRepository.IRepository;
 using Know.Repository;
+using Know.Repository.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Myn.Core.AppSettingManager;
 
 namespace KnowLedge
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+            AppSettingConfig.Configure(configuration);
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         /// <summary>
@@ -25,10 +31,10 @@ namespace KnowLedge
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews(option =>
+           /* services.AddControllersWithViews(option =>
             {
                 option.Filters.Add<CustomExceptionFilterAttribute>();//È«¾Ö×¢²á¹ýÂËÆ÷
-            });
+            });*/
 
 
 
@@ -43,6 +49,8 @@ namespace KnowLedge
 
             services.AddTransient<ITest, Test>();
             services.AddTransient<Testbll>();
+            services.AddTransient<IQuestionRepository, QuestionRepository>();
+            services.AddTransient<QuestionBusiness>();
 
         }
 

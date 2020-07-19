@@ -8,7 +8,7 @@ using Myn.Reflection;
 
 namespace Myn.Data.ORM
 {
-    public class MysqlProvider<T> : DBProvider<T>, IDbProvider<T> where T : new()
+    public class MysqlProvider<T> : DBProvider<T> where T : new()
     {
 
         public MysqlProvider() : base() { }

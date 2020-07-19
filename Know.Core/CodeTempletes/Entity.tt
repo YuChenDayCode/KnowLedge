@@ -1,0 +1,19 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="$(TargetDir)Know.Core.dll" #>
+<#@ import namespace="Know.Core.CodeTempletes" #>
+using System;
+
+namespace Know.Model
+{
+    public class  ada3
+    {
+        public static void Main(string[] args)
+        {
+           <#    foreach(string entity in EntityContext.GetEntityInfo("aasd3")) {#>
+            Console.WriteLine("你好 {0}({1}),欢迎使用 T4 !", "<#= entity #>", "<#= entity #>");
+            <#    } #>
+        }
+    }
+}

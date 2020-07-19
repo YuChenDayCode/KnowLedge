@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FrameWork;
 using Know.Business;
+using Know.Business.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -14,27 +15,30 @@ namespace KnowLedge.Controllers
     public class HomeController : Controller
     {
         public readonly Testbll _Testbll = null;
+        public readonly QuestionBusiness _question = null;
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger, Testbll Testbll)
+        public HomeController(ILogger<HomeController> logger, Testbll Testbll, QuestionBusiness question)
         {
             _Testbll = Testbll;
             _logger = logger;
+            _question = question;
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            //ITest iTest = new Test();
 
-            // ITest it = HttpContext.RequestServices.GetService(typeof(ITest)) as ITest;
-            ViewBag.Aa = _Testbll.GetStr("testss");
-            for (int i = 0; i < 600; i++)
-            {
-                _logger.LogDebug("Debug日志");
-                _logger.LogError("Error日志");
-                _logger.LogInformation("这是一个日志");
-            }
-           
+            //_logger.LogDebug("Debug日志");
+            //_logger.LogError("Error日志");
+            //_logger.LogInformation("这是一个日志");
+
             return View();
+        }
+
+
+        public JsonResult GetQuestion()
+        {
+            var a = _question.GetList(null);
+            return Json(a);
         }
 
         public IActionResult login()

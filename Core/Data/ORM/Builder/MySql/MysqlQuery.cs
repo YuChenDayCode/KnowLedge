@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 
 namespace Myn.Data.ORM
@@ -47,13 +48,22 @@ namespace Myn.Data.ORM
 
         public override Query<T> where(Expression<Func<T, object>> expression)
         {
-            this._where = Where.Parse(expression, this.propertyMaps);
+            this._where = expression == null ? null : Where.Parse(expression, this.propertyMaps);
             return this;
         }
 
         public override Query<T> Count(Expression<Func<T, object>> field = null)
         {
-            string CountKey = field == null ? this.propertyMaps.First(m => m.PrimaryKey != null).Name : ReflectionExtension.GetProperty(field).Name;
+            string CountKey = "";
+            if (field == null)
+            {
+                CountKey = this.propertyMaps.First(m => m.PrimaryKey != null).ColumnName;
+            }
+            else
+            {
+                var property = ReflectionExtension.GetProperty(field);
+                CountKey = property.GetCustomAttribute<EntityMapper_ColumnName>()?.AliasName ?? property.Name;
+            }
             string sql = $"SELECT COUNT({ this.entitymap.TabelName}.{CountKey}) FROM {this.entitymap.TabelName}";
             _sqlCount = new SqlCount(sql);
             return this;
@@ -69,10 +79,19 @@ namespace Myn.Data.ORM
         {
             pageIndex = pageIndex <= 0 ? 1 : pageIndex;
             var PagingSql = new StringBuilder();
-            string sort_str = sort_field == null ? string.Empty : $" ORDER BY {ReflectionExtension.GetProperty(sort_field).Name} {sortWay}";
-            PagingSql.Append(sort_str);
-            sort_str = sort_field1 == null ? string.Empty : $" ,{ReflectionExtension.GetProperty(sort_field1).Name} {sortWay1}";
-            PagingSql.Append(sort_str);
+            string sort_str = "";
+            if (sort_field != null)
+            {
+                var property = ReflectionExtension.GetProperty(sort_field);
+                sort_str = $" ORDER BY {property.GetCustomAttribute<EntityMapper_ColumnName>()?.AliasName ?? property.Name} {sortWay}";
+                PagingSql.Append(sort_str);
+            }
+            if (sort_field1 != null)
+            {
+                var property1 = ReflectionExtension.GetProperty(sort_field1);
+                sort_str = $" ,{property1.GetCustomAttribute<EntityMapper_ColumnName>()?.AliasName ?? property1.Name} {sortWay1}";
+                PagingSql.Append(sort_str);
+            }
 
             PagingSql.Append($" LIMIT { (pageIndex - 1) * pageSize},{pageSize}");
 

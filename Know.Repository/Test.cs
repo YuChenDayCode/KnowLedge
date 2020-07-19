@@ -1,5 +1,4 @@
-﻿using Know.IRepository;
-using System;
+﻿using Know.IRepository.IRepository;
 
 namespace Know.Repository
 {
