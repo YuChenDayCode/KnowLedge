@@ -27,7 +27,6 @@ namespace Myn.Data
         }
         public XDocument LocalConfig(string addres)
         {
-            //判断是否是虚拟路径,如果不是则转换为绝对路径
             string str = Path.IsPathRooted(addres) ? addres : System.IO.Path.GetFullPath(addres);
             if (!File.Exists(@addres))
                 throw new Exception("配置文件不存在！请检查生成的文件是否包含");

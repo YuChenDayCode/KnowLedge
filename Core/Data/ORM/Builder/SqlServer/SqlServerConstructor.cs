@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using Core;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using FrameWork;
 
 namespace Myn.Data.ORM
 {

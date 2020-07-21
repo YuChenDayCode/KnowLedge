@@ -1,11 +1,11 @@
 C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Know.Model.deps.json
 C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Know.Model.dll
 C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Know.Model.pdb
+C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Core.dll
+C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Core.pdb
 C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.csprojAssemblyReference.cache
 C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.AssemblyInfoInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.csproj.CopyComplete
 C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.dll
 C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.pdb
-C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Core.dll
-C:\Hello World\.NET\KnowLedge\Know.Model\bin\Debug\netcoreapp3.1\Core.pdb
-C:\Hello World\.NET\KnowLedge\Know.Model\obj\Debug\netcoreapp3.1\Know.Model.csproj.CopyComplete

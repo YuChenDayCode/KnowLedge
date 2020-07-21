@@ -13,11 +13,20 @@ namespace Know.Model.Entity
         [EntityMapper_ColumnName("c_Id")]
         public int Id { get; set; }
 
-        [EntityMapper_ColumnName("c_tag_id")]
-        public string TagId { get; set; }
+        [EntityMapper_ColumnName("c_tag")]
+        public string Tag { get; set; }
+
+        [EntityMapper_ColumnName("c_desc")]
+        public string Desc { get; set; }
 
         [EntityMapper_ColumnName("c_title")]
-        public string Titile { get; set; }
+        public string Title { get; set; }
+
+        /// <summary>
+        /// 浏览量
+        /// </summary>
+        [EntityMapper_ColumnName("c_views")]
+        public int Views { get; set; }
 
         [EntityMapper_ColumnName("c_askuser_id")]
         public string AskuserId { get; set; }

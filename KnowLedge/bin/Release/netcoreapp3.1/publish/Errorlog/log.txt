@@ -1,0 +1,35 @@
+2020-07-21 13:22:26,806 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-21 13:22:26,816 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2020-07-21 13:22:26,816 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge\bin\Release\netcoreapp3.1\publish
+2020-07-21 13:22:27,386 [16] ERROR Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18230571301796315137", Request ID "80000003-0002-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.Exception: 配置文件不存在！请检查生成的文件是否包含
+   at Myn.Data.ConfigManager`1.LocalConfig(String addres) in C:\Hello World\.NET\KnowLedge\Core\Data\ConfigManager.cs:line 33
+   at Myn.Data.ORM.MySqlDbConnectionConfig.LoadConfig() in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\MySql\MySqlDbConnectConfig.cs:line 35
+   at Myn.Data.ORM.MySqlDbConnectionConfig.GetSqlDbConntionConfigure() in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\MySql\MySqlDbConnectConfig.cs:line 25
+   at Myn.Data.ORM.MySqlDbConnect.GetIDbCommand() in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\MySql\MySqlDbConnect.cs:line 23
+   at Myn.Data.ORM.DBCommond.CreateCommond(ISqlDocker container) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\DBCommond.cs:line 23
+   at Myn.Data.ORM.DBCommond.ExecuteScalar[T](ISqlDocker sqlDocker, T& value) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\DBCommond.cs:line 63
+   at Myn.Data.ORM.MysqlProvider`1.GetListPage(Expression`1 exp, Int32 PageIndex, Int32 PageSize, Int32& TotalCount, Expression`1 SortField, String SortWay, Expression`1 SortField1, String SortWay1) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\Provider\MysqlProvider.cs:line 59
+   at Know.Repository.Repository.QuestionRepository.Myn.Data.ORM.IDbProvider<Know.Model.Entity.QuestionEntity>.GetListPage(Expression`1 exp, Int32 PageIndex, Int32 PageSize, Int32& TotalCount, Expression`1 SortField, String SortWay, Expression`1 SortField1, String SortWay1)
+   at Know.Business.Business.QuestionBusiness.GetList(Expression`1 exp) in C:\Hello World\.NET\KnowLedge\Know.Business\Business\QuestionBusiness.cs:line 27
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Core.Utility.MiddleWare.ContactMiddleware.InvokeAsync(HttpContext context) in C:\Hello World\.NET\KnowLedge\Core\Utility\MiddleWare\ContactMiddleware.cs:line 40
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2020-07-21 13:22:58,779 [4] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...

@@ -1,0 +1,255 @@
+﻿@{
+    Html.RenderPartial("_PartialIndex");
+    ViewData["Title"] = "Answer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://unpkg.com/browse/wangeditor@3.1.1/release/wangEditor.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #efefef;
+        line-height: 24px;
+        font: 12px/1.5 'Microsoft Yahei', 'Simsun';
+        color: #666666;
+        padding: 0;
+        margin: 0;
+    }
+
+    .kn-tag div {
+        margin: 3px 5px 3px 0;
+    }
+
+    h1, h2, h3 {
+        color: #333;
+        font-weight: 600;
+    }
+
+    .tag {
+        /* margin-top: 20px;*/
+    }
+
+    .card-header {
+        margin: 20px 0 -15px 0;
+        border-radius: 2px;
+        background-color: #fff;
+        position: relative;
+        height: 45px;
+        line-height: 45px;
+        padding: 0 15px;
+        border-bottom: 2px solid #f6f6f6;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .tag a {
+        display: inline-block;
+        height: 25px;
+        padding: 0 12px;
+        background: #eef4fa;
+        border-radius: 20px;
+        -webkit-border-radius: 18px;
+        color: #0084ff;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+    .title-card {
+        position: relative;
+        min-height: 100px;
+    }
+
+    .left {
+        float: left;
+        width: 80%;
+    }
+
+    .right {
+        float: right;
+        width: 20%;
+    }
+
+
+
+    /**富文本样式*/
+    /* table 样式 */
+    table {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+    }
+
+        table td,
+        table th {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 3px 5px;
+        }
+
+        table th {
+            border-bottom: 2px solid #ccc;
+            text-align: center;
+        }
+
+    /* blockquote 样式 */
+    blockquote {
+        display: block;
+        border-left: 8px solid #d0e5f2;
+        padding: 5px 10px;
+        margin: 10px 0;
+        line-height: 1.4;
+        font-size: 100%;
+        background-color: #f1f1f1;
+    }
+
+    /* code 样式 */
+    code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        background-color: #f1f1f1;
+        border-radius: 3px;
+        padding: 3px 5px;
+        margin: 0 3px;
+    }
+
+    pre code {
+        display: block;
+    }
+
+    /* ul ol 样式 */
+    ul, ol {
+        margin: 10px 0 10px 20px;
+    }
+
+    .left div {
+        margin-bottom: 20px;
+    }
+
+    .desc {
+        font-size: 14px;
+        text-indent: 1em;
+    }
+
+    .tag {
+        font-size: 14px;
+    }
+    /***/
+</style>
+
+<div class="layui-container container">
+    <div class="layui-row layui-col-space20">
+        <div id="main" style="display:grid;">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="title-card">
+                        <div class="layui-card-body">
+                            <div class="left">
+                                <div class="title">
+                                    <h1>{{model.title}}</h1>
+                                </div>
+                                <div class="desc">
+                                    <p>{{model.desc}}</p>
+                                </div>
+                                <div class="tag">
+                                    <a href="#" target="_blank" v-for="item in TagSplit">{{item}}</a>
+                                </div>
+                            </div>
+
+                            <div class="right" style="width:200px;text-align:center;">
+                                <p style="color:#8590a6;font-size:14px;">已浏览</p>
+                                <p style="color:black;font-weight:600;font-size:18px;margin-bottom:10px;">{{model.views}}</p>
+                                <button type="button" class="layui-btn layui-btn-normal" onclick="$('#showReply').show();">
+                                    <i class="layui-icon"></i> 回 答
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-card" style="display:none;" id="showReply">
+                <div class="layui-card-body">
+                    <div id="editor"></div>
+                    <div style="height:40px;"> <button id="hdbtn" @@click="AddReply()" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button></div>
+
+                </div>
+            </div>
+            <div class="layui-col-md8" style="padding-right: 16px">
+                <div class="card-header">{{answerlist.length}}个回答</div>
+                <div v-for="(item,index) in answerlist" style="padding: 0px; margin-top: 15px;">
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <p class="autor">
+                                <a href="/user/15985459135" target="_blank">
+                                    <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
+                                </a>
+                                <span class="f_r" style="padding-left: 4px;"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
+                            </p>
+                            <div style="margin-top: 13px; margin-bottom: 8px; font-size: 14px; text-indent: 2em;">
+                                <a v-html="item.content"> </a>
+                            </div>
+                            <p class="autor">
+                                <button class="layui-btn layui-btn-sm layui-btn-primary">
+                                    <i class="layui-icon layui-icon-praise" style="vertical-align: middle;"></i>
+                                    <span style="font-size: 1.05em;">{{item.consent}}</span>
+                                </button>
+                                <a href="javascript:;" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i>1条评论</a>
+                                <span class="dtime f_l" style="float:right;">{{item.createTime}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <script type="text/javascript">
+         var E = window.wangEditor;
+           var editor = new E('#editor');
+        $(function () {
+           editor.create();
+        });
+
+
+        new Vue({
+            el: "#main",
+            data: {
+                model: {},
+                answerlist:[]
+            },
+            mounted() {
+                this.GetAnswer();
+            },
+            computed: {
+                  TagSplit: function () {
+                    return (this.model.tag || "").split(",");
+                }
+            },
+            methods: {
+
+                GetAnswer: function () {
+                    let that = this;
+                    $.get('@Url.Action("GetAnswer")', { id:　@ViewContext.RouteData.Values["id"].ToString() }, function (data) {
+                        that.model = data.questionEntity;
+                        that.answerlist = data.answerList;
+                    });
+                },
+                AddReply: function () {
+                    let contents = editor.txt.html();
+                    var data = { QuestionId: this.model.id, Content: contents };
+                    $.post('@Url.Action("Reply")', data, function (data) {
+                        console.log(data);
+                        if (data.Status) {
+                            location.reload(true);
+                        }
+                    });
+
+                }
+            }
+        });
+    </script>
+
+}

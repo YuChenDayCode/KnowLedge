@@ -1,10 +1,9 @@
-﻿
-@{
+﻿@{
+    Html.RenderPartial("_PartialIndex");
     ViewData["Title"] = "Answer";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    Html.RenderPartial("_PartialIndex");
 }
-<link href="~/lib/simditor/assets/styles/simditor.css" rel="stylesheet" />
+<link href="https://unpkg.com/browse/wangeditor@3.1.1/release/wangEditor.min.css" rel="stylesheet" />
 
 <style>
     body {
@@ -135,13 +134,13 @@
                                     <h1>{{model.title}}</h1>
                                 </div>
                                 <div class="tag">
-                                    <a v-for="(tag,index) in model.tags">{{tag}}</a>
+                                    <a>{{model.tagId}}</a>
                                 </div>
                             </div>
 
                             <div class="right" style="width:200px;text-align:center;">
                                 <p style="color:#8590a6;font-size:14px;">已浏览</p>
-                                <p style="color:black;font-weight:600;font-size:18px;margin-bottom:10px;">151625</p>
+                                <p style="color:black;font-weight:600;font-size:18px;margin-bottom:10px;">{{model.views}}</p>
                                 <button type="button" class="layui-btn layui-btn-normal" onclick="$('#showReply').show();">
                                     <i class="layui-icon"></i> 回 答
                                 </button>
@@ -153,36 +152,31 @@
             <div class="layui-card" style="display:none;" id="showReply">
                 <div class="layui-card-body">
                     <div id="editor"></div>
-                    <div style="height:40px;"> <button id="hdbtn" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button></div>
-                   
+                    <div style="height:40px;"> <button id="hdbtn" @@click=" AddReply()" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button></div>
+
                 </div>
             </div>
             <div class="layui-col-md8" style="padding-right: 16px">
-                <div class="card-header">{{list.length}}个回答</div>
-                <div v-for="(item,index) in list" style="padding: 0px; margin-top: 15px;">
+                <div class="card-header">{{answerlist.length}}个回答</div>
+                <div v-for="(item,index) in answerlist" style="padding: 0px; margin-top: 15px;">
                     <div class="layui-card">
                         <div class="layui-card-body">
-                            <div class="caption-subject uppercase" style="font-size: 18px; color: rgb(68, 68, 68); font-weight: 600;">
-                                <h2>
-                                    <a href="/Home/Answer" title="item.name" target="_blank" style="font-size: 18px; color: rgb(68, 68, 85); font-weight: 600;">{{item.name}}</a>
-                                </h2>
-                            </div>
                             <p class="autor">
                                 <a href="/user/15985459135" target="_blank">
                                     <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
                                 </a>
-                                <span class=" f_r" style="padding-left: 4px;"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
+                                <span class="f_r" style="padding-left: 4px;"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
                             </p>
                             <div style="margin-top: 13px; margin-bottom: 8px; font-size: 14px; text-indent: 2em;">
-                                <a href="#"> {{item.desc}}</a>
+                                <a v-html="item.content"> </a>
                             </div>
                             <p class="autor">
                                 <button class="layui-btn layui-btn-sm layui-btn-primary">
                                     <i class="layui-icon layui-icon-praise" style="vertical-align: middle;"></i>
-                                    <span style="font-size: 1.05em;">10</span>
+                                    <span style="font-size: 1.05em;">{{item.consent}}</span>
                                 </button>
                                 <a href="javascript:;" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i>1条评论</a>
-                                <span class="dtime f_l" style="float:right;">2019-9-16 17:24:50</span>
+                                <span class="dtime f_l" style="float:right;">{{item.createTime}}</span>
                             </p>
                         </div>
                     </div>
@@ -195,41 +189,41 @@
 @section Scripts{
     <script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script type="text/javascript">
-
+         var E = window.wangEditor;
+           var editor = new E('#editor');
         $(function () {
-
-            var E = window.wangEditor;
-            var editor = new E('#editor');
-            editor.create();
-            //var editor = new window.wangEditor('#editor').create();
-            editor.txt.html('<p>用 JS 设置的内容</p>')
-            $('#hdbtn').on('click', function () {
-                console.log(editor);
-                alert(editor.txt.html());
-                alert(editor.txt.text());
-            });
+           editor.create();
         });
-
 
 
         new Vue({
             el: "#main",
             data: {
-                model: {
-                    title: "这个就是标题啊，有多长呢？这么长！", tags: ["一", "提问", "C#"]
-                },
-                list: [
-                    { "id": 1, "name": "屏幕截图", "desc": " 我前两天写了一篇文章：王亚晖：创业寒冬到底有多冷然后我一个在某知名联合办公空间的朋友看到这个跟我说，他们在北京的一个场地，一年前基本是满租的，在过去半年时间里出租率跌破了70%，还在一路下跌，为了阻止这个情况发生他们现在有各种叠加优惠政策，…重复", author: "雨辰", createtime: "2019-9-16 17:24:50" },
-                    { "id": 2, "name": "屏幕截图1", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50" },
-                    { "id": 3, "name": "屏幕截图2", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50" }
-                ]
+                model: {},
+                answerlist:[]
+            },
+            mounted() {
+                this.GetAnswer();
             },
             methods: {
-                download: function () {
-                    $.get('/Home/GetUrl', {}, function (data) {
+                GetAnswer: function () {
+                    let that = this;
+                    $.get('@Url.Action("GetAnswer")', { id:　@ViewContext.RouteData.Values["id"].ToString() }, function (data) {
                         console.log(data);
-                        location.href = "http://" + data;
+                        that.model = data.questionEntity;
+                        that.answerlist = data.answerList;
                     });
+                },
+                AddReply: function () {
+                    let contents = editor.txt.html();
+                    var data = { QuestionId: this.model.id, Content: contents };
+                    $.post('@Url.Action("Reply")', data, function (data) {
+                        console.log(data);
+                        if (data.Status) {
+                            location.reload(true);
+                        }
+                    });
+
                 }
             }
         });

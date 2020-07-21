@@ -1,12 +1,10 @@
-﻿using Myn.Data.ORM;
+﻿using Core;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using Myn;
-using FrameWork;
 
 namespace Myn.Data.ORM
 {
