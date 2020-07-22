@@ -28,6 +28,12 @@
         /* margin-top: 20px;*/
     }
 
+    .layui-btn-primary {
+        border: none;
+        background-color: #eee;
+        /*color: #0084FF;*/
+    }
+
     .card-header {
         margin: 20px 0 -15px 0;
         border-radius: 2px;
@@ -134,12 +140,46 @@
     .tag {
         font-size: 14px;
     }
+
+    .comment {
+        margin-top: 15px;
+        border: 1px solid #e9e6e6;
+        box-shadow: 0 1px 3px rgba(17,17,17,.15);
+    }
+
+        .comment .head {
+            margin: 0px;
+            font-weight: 400;
+        }
+
+    .commentbody {
+        padding: 0px;
+    }
+
+    .comment-desc {
+        margin-bottom: 8px;
+        font-size: 14px;
+        text-indent: 2em;
+    }
+
+        .comment-desc ul {
+            margin: 0px;
+        }
+
+            .comment-desc ul li div {
+                border-bottom: 1px solid #e9e6e6;
+                padding: 15px 0 20px 0;
+            }
+
+    .comment-child {
+        padding-left: 35px;
+    }
     /***/
 </style>
 
 <div class="layui-container container">
     <div class="layui-row layui-col-space20">
-        <div id="main" style="display:grid;">
+        <div id="main" style="display: grid;">
             <div class="layui-card">
                 <div class="layui-card-body">
                     <div class="title-card">
@@ -152,11 +192,10 @@
                                     <p>{{model.desc}}</p>
                                 </div>
                                 <div class="tag">
-                                    <a href="#" target="_blank" v-for="item in TagSplit">{{item}}</a>
+                                    <a :href="'/Tag/Index/'+item" target="_blank" v-for="item in TagSplit">{{item}}</a>
                                 </div>
                             </div>
-
-                            <div class="right" style="width:200px;text-align:center;">
+                            <div class="right" style="width: 200px;text-align: center;">
                                 <p style="color:#8590a6;font-size:14px;">已浏览</p>
                                 <p style="color:black;font-weight:600;font-size:18px;margin-bottom:10px;">{{model.views}}</p>
                                 <button type="button" class="layui-btn layui-btn-normal" onclick="$('#showReply').show();">
@@ -171,7 +210,6 @@
                 <div class="layui-card-body">
                     <div id="editor"></div>
                     <div style="height:40px;"> <button id="hdbtn" @@click="AddReply()" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button></div>
-
                 </div>
             </div>
             <div class="layui-col-md8" style="padding-right: 16px">
@@ -183,7 +221,7 @@
                                 <a href="/user/15985459135" target="_blank">
                                     <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
                                 </a>
-                                <span class="f_r" style="padding-left: 4px;"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
+                                <span class="f_r"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
                             </p>
                             <div style="margin-top: 13px; margin-bottom: 8px; font-size: 14px; text-indent: 2em;">
                                 <a v-html="item.content"> </a>
@@ -191,11 +229,39 @@
                             <p class="autor">
                                 <button class="layui-btn layui-btn-sm layui-btn-primary">
                                     <i class="layui-icon layui-icon-praise" style="vertical-align: middle;"></i>
-                                    <span style="font-size: 1.05em;">{{item.consent}}</span>
+                                    <a style="font-size: 1.05em;">{{item.consent}}</a>
                                 </button>
-                                <a href="javascript:;" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i>1条评论</a>
+                                <a  @@click="(showComment =!showComment)" href="javascript:void(0);" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i>1条评论</a>
                                 <span class="dtime f_l" style="float:right;">{{item.createTime}}</span>
                             </p>
+                            <div class="layui-card comment" v-show="showComment">
+                                <div class="card-header head" style="">1个评论</div>
+                                <div class="layui-card-body commentbody">
+                                    <div class="comment-desc">
+                                        <ul>
+                                            <li v-for="item in 4" :class="{'comment-child' : item>1}">
+                                                <p class="autor" style="display:block;">
+                                                    <a href="/user/15985459135" target="_blank">
+                                                        <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
+                                                    </a>
+                                                    <span class="f_r"><b style="font-size:14px;">雨辰</b></span>
+                                                </p>
+                                                <div><span>原来是这样吗？！</span></div>
+                                            </li>
+                                            @*<li class="comment-child">
+                                                <p class="autor">
+                                                    <a href="/user/15985459135" target="_blank">
+                                                        <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
+                                                    </a>
+                                                    <span class="f_r"><b style="font-size:14px;">雨辰</b></span>
+                                                </p>
+                                                <div><span>原来是这样吗？！</span></div>
+                                            </li>*@
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,7 +284,8 @@
             el: "#main",
             data: {
                 model: {},
-                answerlist:[]
+                answerlist: [],
+                showComment: false
             },
             mounted() {
                 this.GetAnswer();

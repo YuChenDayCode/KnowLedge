@@ -129,10 +129,11 @@
                     }
                 }
             },
-            methods: { 
+            methods: {
                 InitData: function () {
+            
                       let that = this;
-                    $.get('@Url.Action("GetQuestionByTag")', {}, function (data) {
+                    $.get('@Url.Action("GetQuestionByTag")', {id:'@Html.ViewContext.RouteData.Values["id"]'}, function (data) {
                         console.log(data);
                         that.list = data;
                     });

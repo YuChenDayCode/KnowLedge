@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Know.Business.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,11 +27,16 @@ namespace KnowLedge.Controllers
             return View();
         }
 
-        public JsonResult GetQuestionByTag()
+        public JsonResult GetQuestionByTag(string id)
         {
-            string s = Id;
-            var ss = _question.GetList(t => t.Tag.Contains(s));
-            return Json(ss);
+            try
+            {
+                string tag = HttpUtility.HtmlDecode(id);
+                tag = @$"%{ tag }%";
+                var ss = _question.GetList(t => t.Tag.Contains(tag));
+                return Json(ss);
+            }
+            catch (Exception ex) { return Json(""); }
         }
     }
 }

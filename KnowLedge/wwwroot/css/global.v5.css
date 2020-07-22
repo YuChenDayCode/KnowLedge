@@ -480,12 +480,13 @@ pre {
 }
 
     .autor span {
-        margin-left: 20px;
+        margin-left: 10px;
         padding-left: 0px;
     }
 
         .autor span a {
             color: #759b08;
+            font-size: 14px;
         }
 
             .autor span a:hover {

@@ -24,7 +24,7 @@ namespace Know.Business.Business
         {
             //_iQuestionRepository.Count(t=>t.Id==1,t=>t.Id);
             int count = 0;
-            var ss = _iQuestionRepository.GetListPage(exp, 0, 10, out count, s => s.CreateTime, "Desc");
+             var ss = _iQuestionRepository.GetListPage(exp, 0, 10, out count, s => s.CreateTime, "Desc");
             return ss;
         }
         public bool Insert(QuestionEntity model)

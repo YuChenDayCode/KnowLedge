@@ -1,3 +1,4 @@
+using Core.Utility.Filter;
 using Core.Utility.MiddleWare;
 using Know.Business;
 using Know.Business.Business;
@@ -32,10 +33,10 @@ namespace KnowLedge
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            /* services.AddControllersWithViews(option =>
+             services.AddControllersWithViews(option =>
              {
                  option.Filters.Add<CustomExceptionFilterAttribute>();//È«¾Ö×¢²á¹ýÂËÆ÷
-             });*/
+             });
 
 
 

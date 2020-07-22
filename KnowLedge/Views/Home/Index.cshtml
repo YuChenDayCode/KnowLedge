@@ -99,7 +99,7 @@
                                 </button>
                                 <span class="viewnum f_r">回答(<a href="#">7</a>)</span>
                                 <span class="viewnum f_r">浏览(<a href="#">{{item.views}}</a>)</span>
-                                <span class="lm f_l"><a v-for="ctag in tagSplit(item.tag)" :href="'/Tag/Index/'+ctag" target="_blank">{{ctag}} </a></span>
+                                <span class="lm f_l">[<a v-for="ctag in tagSplit(item.tag)" :href="'/Tag/Index/'+ctag" title="来自分类" target="_blank">{{ctag}}</a>]</span>
                                 <span class="dtime f_l" :title="'提问时间:'+item.createTime">{{item.createTime}}</span>
                             </p>
                         </div>
