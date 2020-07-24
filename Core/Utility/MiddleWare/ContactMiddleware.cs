@@ -36,7 +36,6 @@ namespace Core.Utility.MiddleWare
                     await SetForbiddenImage(context);
                 }
             }
-
             await _next(context);
         }
 

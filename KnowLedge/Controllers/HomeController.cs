@@ -41,13 +41,19 @@ namespace KnowLedge.Controllers
             return View();
         }
 
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+
 
         public JsonResult GetQuestion()
         {
             var a = _question.GetList(null);
             return Json(a);
         }
-
+        
 
         public JsonResult Ask(QuestionInsertViewModel model)
         {

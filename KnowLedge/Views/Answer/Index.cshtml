@@ -42,7 +42,7 @@
         height: 45px;
         line-height: 45px;
         padding: 0 15px;
-        border-bottom: 2px solid #f6f6f6;
+        border-bottom: 1px solid #f6f6f6;
         color: #333;
         font-size: 16px;
         font-weight: 600;
@@ -156,30 +156,43 @@
         padding: 0px;
     }
 
-    .comment-desc {
-        margin-bottom: 8px;
-        font-size: 14px;
-        text-indent: 2em;
-    }
 
-        .comment-desc ul {
+
+        .commentbody ul {
             margin: 0px;
         }
 
-            .comment-desc ul li div {
-                border-bottom: 1px solid #e9e6e6;
-                padding: 15px 0 20px 0;
-            }
+    .comment-desc ul li div {
+    }
 
     .comment-child {
         padding-left: 35px;
     }
+
+    .comment-wrap {
+        padding: 10px;
+        border-top: 1px solid #e9e6e6;
+    }
+
+    .comment-head {
+        margin-bottom: 5px;
+    }
+
+    .comment-body {
+        padding-left: 30px;
+    }
+
+    .comment-desc {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
     /***/
 </style>
 
 <div class="layui-container container">
     <div class="layui-row layui-col-space20">
-        <div id="main" style="display: grid;">
+        <div id="main" style=" display: grid;">
             <div class="layui-card">
                 <div class="layui-card-body">
                     <div class="title-card">
@@ -231,34 +244,45 @@
                                     <i class="layui-icon layui-icon-praise" style="vertical-align: middle;"></i>
                                     <a style="font-size: 1.05em;">{{item.consent}}</a>
                                 </button>
-                                <a  @@click="(showComment =!showComment)" href="javascript:void(0);" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i>1条评论</a>
+                                <a @@click="GetComment($event,item.id)" href="javascript:void(0);" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i> 评论</a>
                                 <span class="dtime f_l" style="float:right;">{{item.createTime}}</span>
                             </p>
-                            <div class="layui-card comment" v-show="showComment">
-                                <div class="card-header head" style="">1个评论</div>
+                            <div class="cc"></div>
+                            <div id="commenthtml" class="layui-card comment" v-if="commentshow">
+                                <div class="card-header head" style="">{{commentlist.length}}个评论</div>
                                 <div class="layui-card-body commentbody">
-                                    <div class="comment-desc">
-                                        <ul>
-                                            <li v-for="item in 4" :class="{'comment-child' : item>1}">
-                                                <p class="autor" style="display:block;">
-                                                    <a href="/user/15985459135" target="_blank">
-                                                        <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
-                                                    </a>
-                                                    <span class="f_r"><b style="font-size:14px;">雨辰</b></span>
-                                                </p>
-                                                <div><span>原来是这样吗？！</span></div>
-                                            </li>
-                                            @*<li class="comment-child">
-                                                <p class="autor">
-                                                    <a href="/user/15985459135" target="_blank">
-                                                        <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
-                                                    </a>
-                                                    <span class="f_r"><b style="font-size:14px;">雨辰</b></span>
-                                                </p>
-                                                <div><span>原来是这样吗？！</span></div>
-                                            </li>*@
-                                        </ul>
+                                    <div style="margin: 10px;">
+                                        <ul v-for="comment in commentlist">
+                                            <li>
+                                                <div class="comment-wrap">
+                                                    <div class="comment-head">
+                                                        <a href="/user/15985459135" target="_blank">
+                                                            <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
+                                                        </a>
+                                                        <span style="padding-left:5px;"><b style="font-size:14px;">{{comment.UserName}}</b></span>
+                                                    </div>
+                                                    <div class="comment-body">
+                                                        <div class="comment-desc"><span>{{comment.Content}}</span></div>
+                                                        <div><a href="javascript:void(0);" @@click="CommentReply($event,comment.UserName)">回复</a></div>
 
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li v-for="childcomment in comment.childEntity" class="comment-child">
+                                                <div class="comment-wrap">
+                                                    <div class="comment-head">
+                                                        <a href="/user/15985459135" target="_blank">
+                                                            <img src="https://img.tnblog.net/userdata/minheads/min_73a057e6dcca4c539347788275ae3076.jpeg" style="width: 22px; height: 22px; border-radius: 30%; margin-top: -4px;">
+                                                        </a>
+                                                        <span style="padding-left:5px;"><b style="font-size:14px;">{{childcomment.UserName}}</b></span>
+                                                    </div>
+                                                    <div class="comment-body">
+                                                        <div class="comment-desc"><span>{{childcomment.Content}}</span></div>
+                                                        <div><a href="javascript:void(0);" @@click="CommentReply($event,childcomment.UserName)">回复</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -269,7 +293,7 @@
         </div>
     </div>
 </div>
-
+@*@@click="(showComment =!showComment)"*@
 @section Scripts{
     <script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script type="text/javascript">
@@ -285,21 +309,23 @@
             data: {
                 model: {},
                 answerlist: [],
-                showComment: false
+                commentlist: [],
+                commentHtml: "",
+                commentshow: false
             },
             mounted() {
                 this.GetAnswer();
             },
             computed: {
-                  TagSplit: function () {
+                TagSplit: function () {
                     return (this.model.tag || "").split(",");
                 }
             },
             methods: {
-
                 GetAnswer: function () {
                     let that = this;
                     $.get('@Url.Action("GetAnswer")', { id:　@ViewContext.RouteData.Values["id"].ToString() }, function (data) {
+                        console.log(data);
                         that.model = data.questionEntity;
                         that.answerlist = data.answerList;
                     });
@@ -308,12 +334,40 @@
                     let contents = editor.txt.html();
                     var data = { QuestionId: this.model.id, Content: contents };
                     $.post('@Url.Action("Reply")', data, function (data) {
-                        console.log(data);
                         if (data.Status) {
                             location.reload(true);
                         }
                     });
+                },
+                GetComment: function (obj, id) {
+                    let that = this;
+                    if (that.commentshow) { that.commentshow = false; }
+                    else {
+                        let data = { aid: id };
+                        $.get("/Comment/GetCommentByAid", data, function (data) {
+                            console.log(data);
+                            if (data.Status) {
+                                that.commentlist = data.Data;
 
+                                let a = $('#commenthtml').html();
+                                that.commentshow = true;
+                                $(obj.target).parent().next().append(a);
+                            }
+                        });
+                    }
+                },
+                CommentReply: function (obj, name) {
+                    let $this = $(obj.target);
+                    let $thistext = $this.html();
+                    if ($thistext == '回复') {
+                        $this.html('取消回复');
+                        $this.parent().append("<div><input class=\"layui-input\" placeholder=\"回复 " + name + "\"  style=\"float:left;width:85%\">\
+                        <button type =\"button\" class=\"layui-btn layui-btn-normal\">回复</button></div>");
+                    }
+                    else {
+                         $this.html('回复');
+                        $(obj.target).next().remove();
+                    }
                 }
             }
         });

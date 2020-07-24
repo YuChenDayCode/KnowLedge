@@ -1,63 +1,41 @@
-2020-07-22 12:54:41,498 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 12:54:41,514 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 12:54:41,520 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 12:54:41,523 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 12:55:09,115 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 12:55:09,128 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 12:55:09,131 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 12:55:09,135 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 12:56:35,315 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 12:56:35,329 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 12:56:35,332 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 12:56:35,335 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 12:59:10,332 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 12:59:10,344 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 12:59:10,346 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 12:59:10,348 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 12:59:51,311 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 12:59:51,320 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 12:59:51,323 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 12:59:51,325 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:07:37,890 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:07:37,901 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:07:37,903 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:07:37,906 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:16:17,473 [13] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
-MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution.
- ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered attempting to read the resultset.
- ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Reading from the stream has failed.
- ---> System.IO.IOException: Unable to read data from the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
- ---> System.Net.Sockets.SocketException (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
-   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
-   --- End of inner exception stack trace ---
-   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
-   at MySql.Data.MySqlClient.TimedStream.Read(Byte[] buffer, Int32 offset, Int32 count)
-   at MySql.Data.MySqlClient.MySqlStream.ReadFully(Stream stream, Byte[] buffer, Int32 offset, Int32 count)
-   at MySql.Data.MySqlClient.MySqlStream.LoadPacket()
-   at MySql.Data.MySqlClient.MySqlStream.LoadPacket()
-   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
-   at Myn.Data.ORM.DBCommond.ExecuteReader[T](ISqlDocker sqlDocker) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\DBCommond.cs:line 54
-   at Myn.Data.ORM.MysqlProvider`1.GetListPage(Expression`1 exp, Int32 PageIndex, Int32 PageSize, Int32& TotalCount, Expression`1 SortField, String SortWay, Expression`1 SortField1, String SortWay1) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\Provider\MysqlProvider.cs:line 60
-   at Know.Repository.Repository.QuestionRepository.Myn.Data.ORM.IDbProvider<Know.Model.Entity.QuestionEntity>.GetListPage(Expression`1 exp, Int32 PageIndex, Int32 PageSize, Int32& TotalCount, Expression`1 SortField, String SortWay, Expression`1 SortField1, String SortWay1)
-   at Know.Business.Business.QuestionBusiness.GetList(Expression`1 exp) in C:\Hello World\.NET\KnowLedge\Know.Business\Business\QuestionBusiness.cs:line 27
-   at KnowLedge.Controllers.TagController.GetQuestionByTag(String id) in C:\Hello World\.NET\KnowLedge\KnowLedge\Controllers\TagController.cs:line 34
-   at lambda_method(Closure , Object , Object[] )
-   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location where exception was thrown ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+2020-07-24 17:13:59,906 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 17:13:59,920 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 17:13:59,922 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 17:13:59,925 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 18:34:38,288 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 18:34:38,304 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 18:34:38,310 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 18:34:38,318 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 18:42:59,016 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 18:42:59,035 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 18:42:59,038 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 18:42:59,040 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 18:43:25,832 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 18:43:25,844 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 18:43:25,846 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 18:43:25,848 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 19:11:38,037 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 19:11:38,048 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 19:11:38,049 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 19:11:38,051 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 20:59:43,428 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 20:59:43,442 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 20:59:43,444 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 20:59:43,445 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:07:49,390 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:07:49,402 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:07:49,405 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:07:49,408 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:09:15,670 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:09:15,686 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:09:15,688 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:09:15,692 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:09:25,577 [7] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
    at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
    at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
 --- End of stack trace from previous location where exception was thrown ---
@@ -69,50 +47,247 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered duri
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
    at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
-2020-07-22 13:18:33,103 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:18:33,113 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:18:33,115 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:18:33,116 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:20:12,770 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:20:12,783 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:20:12,785 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:20:12,787 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:24:16,608 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:24:16,618 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:24:16,620 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:24:16,622 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:33:49,175 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:33:49,187 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:33:49,190 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:33:49,193 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:41:40,161 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:41:40,172 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:41:40,174 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:41:40,178 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 13:45:01,066 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 13:45:01,076 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 13:45:01,078 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 13:45:01,080 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 15:35:51,487 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 15:35:51,498 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 15:35:51,502 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 15:35:51,508 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 15:41:37,026 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 15:41:37,037 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 15:41:37,041 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 15:42:05,459 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 15:42:05,470 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 15:42:05,472 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 15:42:05,474 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 15:42:57,867 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 15:42:57,893 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 15:42:57,923 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 15:42:57,925 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 16:34:51,120 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 16:34:51,134 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 16:34:51,136 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 16:34:51,143 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-22 21:42:49,976 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-22 21:42:49,987 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-22 21:42:49,995 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-22 21:42:50,002 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:12:39,652 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:12:39,663 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:12:39,666 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:12:39,668 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:13:04,255 [4] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-07-24 21:13:12,504 [7] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-07-24 21:14:13,653 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:14:13,664 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:14:13,666 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:14:13,669 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:23:17,145 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:23:17,156 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:23:17,158 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:23:17,160 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:24:17,361 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
+2020-07-24 21:24:17,371 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:24:17,374 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:24:17,376 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:28:07,375 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:28:07,387 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:28:07,389 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:36:45,865 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:36:45,879 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:36:45,882 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:44:08,026 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:44:08,038 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:44:08,042 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:44:14,651 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:44:24,093 [8] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:46:55,251 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:46:55,268 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:46:55,271 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:47:01,328 [9] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:47:23,235 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:48:40,202 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:48:40,214 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:48:40,216 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:48:46,038 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:48:51,119 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:50:05,733 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:50:05,745 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:50:05,747 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:50:16,626 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Know.Business.Business.CommentBusiness' while attempting to activate 'KnowLedge.Controllers.CommentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ExceptionContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:52:41,755 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:52:41,770 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:52:41,772 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 21:53:49,370 [4] ERROR Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware - An unhandled exception has occurred while executing the request.
+System.ArgumentException: Object of type 'System.UInt32' cannot be converted to type 'System.Int32'.
+   at System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   at System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at System.Reflection.PropertyInfo.SetValue(Object obj, Object value)
+   at Myn.Data.ORM.ReaderDataEntity`1.ConvertDataEntity() in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\ReaderDataEntity.cs:line 50
+   at Myn.Data.ORM.DBCommond.ExecuteReader[T](ISqlDocker sqlDocker) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\DBCommond.cs:line 57
+   at Myn.Data.ORM.MysqlProvider`1.GetList(Expression`1 exp, Int32 top) in C:\Hello World\.NET\KnowLedge\Core\Data\ORM\Provider\MysqlProvider.cs:line 53
+   at Know.Repository.Repository.CommentRepository.Myn.Data.ORM.IDbProvider<Know.Model.Entity.CommentEntity>.GetList(Expression`1 exp, Int32 top)
+   at Know.Business.Business.CommentBusiness.GetList(Expression`1 exp) in C:\Hello World\.NET\KnowLedge\Know.Business\Business\CommentBusiness.cs:line 18
+   at KnowLedge.Controllers.CommentController.GetCommentByAid(Int32 aid) in C:\Hello World\.NET\KnowLedge\KnowLedge\Controllers\CommentController.cs:line 29
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ExceptionContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-07-24 21:54:30,392 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 21:54:30,407 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 21:54:30,409 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 22:30:58,521 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 22:30:58,537 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 22:30:58,539 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 22:34:29,311 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 22:34:29,323 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 22:34:29,326 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
+2020-07-24 22:39:12,420 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-07-24 22:39:12,436 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-07-24 22:39:12,439 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge

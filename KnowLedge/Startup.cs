@@ -56,7 +56,9 @@ namespace KnowLedge
                     .AddTransient<QuestionBusiness>()
                     .AddTransient<IQuestionRepository, QuestionRepository>()
                     .AddTransient<AnswerBusiness>()
-                    .AddTransient<IAnswerRepository, AnswerRepository>();
+                    .AddTransient<IAnswerRepository, AnswerRepository>()
+                    .AddTransient<CommentBusiness>()
+                    .AddTransient<ICommentRepository, CommentRepository>();
 
         }
 
@@ -73,7 +75,8 @@ namespace KnowLedge
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/Home/Error");
             }
             else
             {

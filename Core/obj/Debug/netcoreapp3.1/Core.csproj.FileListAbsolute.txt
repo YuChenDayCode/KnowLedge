@@ -5,4 +5,3 @@ C:\Hello World\.NET\KnowLedge\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInpu
 C:\Hello World\.NET\KnowLedge\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
 C:\Hello World\.NET\KnowLedge\Core\obj\Debug\netcoreapp3.1\Core.dll
 C:\Hello World\.NET\KnowLedge\Core\obj\Debug\netcoreapp3.1\Core.pdb
-C:\Hello World\.NET\KnowLedge\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache

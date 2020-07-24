@@ -17,6 +17,11 @@ namespace Core.Utility.Filter
             if (!context.ExceptionHandled)
             {
                 Console.WriteLine($"{context.HttpContext.Request.Path} {context.Exception.Message}");
+                bool isAjaxCall = context.HttpContext.Request.Headers["x-requested-with"] == "XMLHttpRequest";
+                if (isAjaxCall) {
+                    context.HttpContext.Response.Redirect("/Home/Error");
+                }
+                else { 
                 context.Result = new JsonResult(new
                 {
                     result = false,
@@ -24,6 +29,7 @@ namespace Core.Utility.Filter
                 });
                 context.ExceptionHandled = true;
             }
+        }
 
         }
     }
