@@ -23,5 +23,16 @@ namespace Know.Business.Business
 
             return _iCommentRepository.Insert(model);
         }
+
+        /// <summary>
+        /// 查询某个答案有多少评论
+        /// </summary>
+        /// <param name="answer_id"></param>
+        /// <returns></returns>
+        public int CommentCountByAnswerId(int answer_id)
+        {
+
+            return _iCommentRepository.Count(c=>c.AnsweId == answer_id);
+        }
     }
 }

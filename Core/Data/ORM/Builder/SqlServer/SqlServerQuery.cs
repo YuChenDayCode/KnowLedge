@@ -87,6 +87,10 @@ namespace Myn.Data.ORM
             return this;
         }
 
+        public override ISqlDocker CustomSql(string sql)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

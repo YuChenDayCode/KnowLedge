@@ -70,6 +70,17 @@ namespace Myn.Data.ORM
             if (propertyMap.DataType == typeof(DateTime))
             {
             }
+            if (propertyMap.DataType == typeof(int))
+            {
+                var temp = Convert.ToInt64(value);
+                if (temp >= Int16.MinValue && temp <= Int16.MaxValue)
+                    value = Convert.ToInt16(value);
+                else if (temp >= Int32.MinValue && temp <= Int32.MaxValue)
+                    value = Convert.ToInt32(value);
+            }
+       
+     
+
 
             return value;
 

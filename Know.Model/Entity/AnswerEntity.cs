@@ -37,6 +37,5 @@ namespace Know.Model.Entity
         [EntityMapper_ColumnName("c_update_time")]
         public DateTime? UpdateTime { get; set; }
 
-
     }
 }

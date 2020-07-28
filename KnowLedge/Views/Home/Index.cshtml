@@ -80,7 +80,7 @@
                         <div class="layui-card-body">
                             <div class="caption-subject uppercase" style="font-size: 18px; color: #444; font-weight: 600;">
                                 <h2>
-                                    <a :href="'/Answer/Index/'+item.id" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.title}}</a>
+                                    <a :href="'/Answer/Index/'+item.id" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.Title}}</a>
                                 </h2>
                             </div>
                             <p style="margin:15px 0 10px 0">
@@ -90,7 +90,7 @@
                                 <span class=" f_r" style="padding-left: 4px"><b><a href="https://www.tnblog.net/user/15985459135" target="_blank">雨辰</a></b></span>
                             </p>
                             <div style="margin: 10px 0 10px 0; font-size: 14px;text-indent:2em;">
-                                <a href="#"> {{item.desc}}</a>
+                                <a href="#"> {{item.Desc}}</a>
                             </div>
                             <p class="autor">
                                 <button class="layui-btn layui-btn-sm layui-btn-primary">
@@ -98,9 +98,9 @@
                                     <a style="font-size: 1.10em;">10</a>
                                 </button>
                                 <span class="viewnum f_r">回答(<a href="#">7</a>)</span>
-                                <span class="viewnum f_r">浏览(<a href="#">{{item.views}}</a>)</span>
-                                <span class="lm f_l">[<a v-for="ctag in tagSplit(item.tag)" :href="'/Tag/Index/'+ctag" title="来自分类" target="_blank">{{ctag}}</a>]</span>
-                                <span class="dtime f_l" :title="'提问时间:'+item.createTime">{{item.createTime}}</span>
+                                <span class="viewnum f_r">浏览(<a href="#">{{item.Views}}</a>)</span>
+                                <span class="lm f_l">[<a v-for="ctag in tagSplit(item.Tag)" :href="'/Tag/Index/'+ctag" title="来自分类" target="_blank">{{ctag}}</a>]</span>
+                                <span class="dtime f_l" :title="'提问时间:'+item.createTime">{{item.CreateTime}}</span>
                             </p>
                         </div>
                     </div>
@@ -120,23 +120,9 @@
             <div class="cloud">
                 <h3 style="margin-top: 10px">问答标签</h3>
                 <ul>
-                    <li><a href="/Nav/1">.NET</a></li>
-                    <li><a href="/Nav/2">.NET Core</a></li>
-                    <li><a href="/Nav/3">.NET MVC</a></li>
-                    <li><a href="/Nav/5">JAVA</a></li>
-                    <li><a href="/Nav/7">消息队列</a></li>
-                    <li><a href="/Nav/8">Python</a></li>
-                    <li><a href="/Nav/12">数据库</a></li>
-                    <li><a href="/Nav/13">缓存</a></li>
-                    <li><a href="/Nav/18">云服务</a></li>
-                    <li><a href="/Nav/19">架构</a></li>
-                    <li><a href="/Nav/20">Linux</a></li>
-                    <li><a href="/Nav/21">微信</a></li>
-                    <li><a href="/Nav/22">随笔</a></li>
-                    <li><a href="/Nav/Other">其他</a></li>
+                    <li  v-for="tag in taglist"><a :href="'/Tag/Index/'+tag.Tag" target="_blank">{{tag.Tag}}</a></li>
                 </ul>
             </div>
-
 
         </div>
     </div>
@@ -172,8 +158,9 @@
     new Vue({
         el: "#warp",
         data: {
-            question: {},//{ tagId: "1,2,3", desc: "1231233", title: "name" },
-                list: []
+                question: {},//{ tagId: "1,2,3", desc: "1231233", title: "name" },
+                list: [],
+                taglist:[]
                 //{ "id": 1, "name": "oracle数据库表dual的讲解", "desc": "我希望有个如你一般的人我还是很喜欢你，像日光洒满天地，温柔惬意。先提个问 ：oracle数据库里dual表是什么表？...", author: "陪你听风", createtime: "2020-06-05", fromtag: "其他" },
                 //{ "id": 2, "name": "屏幕截图1", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" },
                 //{ "id": 3, "name": "屏幕截图2", "desc": "icPick 是一款优秀的免费屏幕截图工具", author: "雨辰", createtime: "2019-9-16 17:24:50", fromtag: "其他" }]
@@ -194,7 +181,10 @@
                       let that = this;
                     $.get('/Home/GetQuestion', {}, function (data) {
                         console.log(data);
-                        that.list = data;
+                        if (data.Status) {
+                            that.list = data.Data.question;
+                            that.taglist = data.Data.tag;
+                        }
                     });
                 },
                 ShowLayer: function () {

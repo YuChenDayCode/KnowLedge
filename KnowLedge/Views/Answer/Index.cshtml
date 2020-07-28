@@ -125,7 +125,7 @@
 
     /* ul ol 样式 */
     ul, ol {
-        margin: 10px 0 10px 20px;
+       /* margin: 10px 0 10px 20px;*/
     }
 
     .left div {
@@ -244,11 +244,23 @@
                                     <i class="layui-icon layui-icon-praise" style="vertical-align: middle;"></i>
                                     <a style="font-size: 1.05em;">{{item.consent}}</a>
                                 </button>
-                                <a @@click="GetComment($event,item.id)" href="javascript:void(0);" style="margin-left:10px;margin-right:10px;"><i class="layui-icon layui-icon-dialogue"></i> 评论</a>
+
+                                <a @@click="GetComment($event,item.id)" href="javascript:void(0);" style="margin-left:10px;margin-right:10px;">  <i class="layui-icon layui-icon-dialogue"></i> 评论</a>
                                 <span class="dtime f_l" style="float:right;">{{item.createTime}}</span>
                             </p>
                             <div class="cc"></div>
-                            <div id="commenthtml" class="layui-card comment" v-if="commentshow">
+                            <div class="layui-card comment" v-if="initcommentshow">
+                                <div class="card-header head">没有评论</div>
+                                <div class="layui-card-body commentbody">
+                                    <div style="margin: 10px;">
+                                        <div>
+                                            <input class="layui-input" placeholder="写下你的评论" style="float:left;width:90%">
+                                            <button type="button" class="layui-btn layui-btn-normal" @@click="CommentReply($event,item.id,0)">回复</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-card comment" v-if="commentshow">
                                 <div class="card-header head" style="">{{commentlist.length}}个评论</div>
                                 <div class="layui-card-body commentbody">
                                     <div style="margin: 10px;">
@@ -263,8 +275,7 @@
                                                     </div>
                                                     <div class="comment-body">
                                                         <div class="comment-desc"><span>{{comment.Content}}</span></div>
-                                                        <div><a href="javascript:void(0);" @@click="CommentReply($event,comment.UserName)">回复</a></div>
-
+                                                        <div><a href="javascript:void(0);" @@click="CommentReplyDom($event,comment.UserName,comment.Id,item.id)">回复</a></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -278,7 +289,7 @@
                                                     </div>
                                                     <div class="comment-body">
                                                         <div class="comment-desc"><span>{{childcomment.Content}}</span></div>
-                                                        <div><a href="javascript:void(0);" @@click="CommentReply($event,childcomment.UserName)">回复</a></div>
+                                                        <div><a href="javascript:void(0);" @@click="CommentReplyDom($event,childcomment.UserName,childcomment.Id,item.id)">回复</a></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -293,84 +304,118 @@
         </div>
     </div>
 </div>
+
 @*@@click="(showComment =!showComment)"*@
 @section Scripts{
+    <script src="~/lib/layui/lay/modules/layer.js"></script>
+    <link href="~/lib/layui/css/modules/layer/default/layer.css" rel="stylesheet" />
     <script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
     <script type="text/javascript">
          var E = window.wangEditor;
-           var editor = new E('#editor');
+         var editor = new E('#editor');
         $(function () {
            editor.create();
         });
 
-
-        new Vue({
+    new Vue({
             el: "#main",
             data: {
                 model: {},
                 answerlist: [],
                 commentlist: [],
-                commentHtml: "",
+              //  commentHtml: "",
+                initcommentshow: false, //无评论时的显示
                 commentshow: false
             },
             mounted() {
                 this.GetAnswer();
+            },
+            created:function() {
+                let _this = this;
+                window.CommentReply = _this.CommentReply; //动态生成的函数可以有2中方式，这个和v-html的绑定方式
             },
             computed: {
                 TagSplit: function () {
                     return (this.model.tag || "").split(",");
                 }
             },
+
             methods: {
                 GetAnswer: function () {
-                    let that = this;
+                    let _this = this;
                     $.get('@Url.Action("GetAnswer")', { id:　@ViewContext.RouteData.Values["id"].ToString() }, function (data) {
                         console.log(data);
-                        that.model = data.questionEntity;
-                        that.answerlist = data.answerList;
+                        _this.model = data.questionEntity;
+                        _this.answerlist = data.answerList;
                     });
                 },
                 AddReply: function () {
                     let contents = editor.txt.html();
-                    var data = { QuestionId: this.model.id, Content: contents };
+                    let data = { QuestionId: this.model.id, Content: contents };
                     $.post('@Url.Action("Reply")', data, function (data) {
                         if (data.Status) {
                             location.reload(true);
                         }
                     });
                 },
-                GetComment: function (obj, id) {
-                    let that = this;
-                    if (that.commentshow) { that.commentshow = false; }
-                    else {
-                        let data = { aid: id };
-                        $.get("/Comment/GetCommentByAid", data, function (data) {
-                            console.log(data);
-                            if (data.Status) {
-                                that.commentlist = data.Data;
+                GetComment: function (obj, id,load) {
+                    let _this = this;
+                    let $thisobj = $(obj.target);
 
-                                let a = $('#commenthtml').html();
-                                that.commentshow = true;
-                                $(obj.target).parent().next().append(a);
+                    let data = { aid: id };
+                    $.get("/Comment/GetCommentByAid?tempPara="+Math.random(), data, function (data) {
+                        if (data.Status) {
+                            if (data.Data.length == 0) { //meiyou pinglun
+                                if (_this.initcommentshow) $thisobj.html('评论');
+                                else $thisobj.html('收起评论');
+                                _this.initcommentshow = !_this.initcommentshow;
+                                _this.commentshow = false;
                             }
-                        });
+                            else {
+                                if (_this.commentshow) $thisobj.html('评论');
+                                else $thisobj.html('收起评论');
+                                _this.commentlist = data.Data;
+                                _this.commentshow = !_this.commentshow;
+                                console.log(data.Data);
+                                _this.initcommentshow = false;
+                                if (load) {
+                                    _this.commentshow = true;
+                                }
+                            }
+                        }
+                    });
+                },
+                CommentReplyDom: function (obj, name, cid, aid) {
+                    let $thisobj = $(obj.target);
+                    let $thistext = $thisobj.html();
+                    if ($thistext == '回复') {
+                        $thisobj.html('取消回复');
+                        $thisobj.parent().append("<div><input class=\"layui-input\" placeholder=\"回复 " + name + "\"  style=\"float:left;width:90%\">\
+                            <button type =\"button\" class=\"layui-btn layui-btn-normal\" onclick=\"CommentReply(this,"+ aid+","+cid+")\">回复</button></div>");
+                    }
+                    else {
+                         $thisobj.html('回复');
+                         $(obj.target).next().remove();
                     }
                 },
-                CommentReply: function (obj, name) {
-                    let $this = $(obj.target);
-                    let $thistext = $this.html();
-                    if ($thistext == '回复') {
-                        $this.html('取消回复');
-                        $this.parent().append("<div><input class=\"layui-input\" placeholder=\"回复 " + name + "\"  style=\"float:left;width:85%\">\
-                        <button type =\"button\" class=\"layui-btn layui-btn-normal\">回复</button></div>");
-                    }
-                    else {
-                         $this.html('回复');
-                        $(obj.target).next().remove();
-                    }
+                CommentReply: function (obj, aid, cid) {
+                    let _this = this;
+                    let thisobj = obj.target || obj;
+                    $thisobj = $(thisobj);
+                    let $inpval = $thisobj.prev().val();
+                    if ($inpval == "") { layui.layer.msg('回复不能为空！');  return; }
+                    let data = { AnsweId: aid, Pid: cid, Content: $inpval };
+                    $.post('/Comment/AddCommentReply', data, function (data) {
+                        if (data.Status) {
+                            if (data.Data > 1) {
+                                $thisobj.parent().prev().html('回复');
+                                $thisobj.parent().remove();
+                            }
+                            _this.GetComment($("<a></a>"), aid,true);
+                        }
+                    })
                 }
             }
         });
     </script>
-
 }

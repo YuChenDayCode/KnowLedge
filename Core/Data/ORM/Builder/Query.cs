@@ -14,6 +14,7 @@ namespace Myn.Data.ORM
         protected SqlCount _sqlCount;
         protected SqlPaging _sqlPaging;
 
+        public abstract ISqlDocker CustomSql(string sql);
         public abstract Query<T> Top(int num);
         public abstract Query<T> where(Expression<Func<T, object>> expression);
         public abstract Query<T> Count(Expression<Func<T, object>> expression = null);

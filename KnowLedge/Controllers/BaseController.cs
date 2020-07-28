@@ -39,10 +39,11 @@ namespace KnowLedge.Controllers
             }
 
             context.HttpContext.Response.ContentType = string.IsNullOrEmpty(ContentType) ? "application/json" : ContentType;
-
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
             if (Value != null)
             {
-                await context.HttpContext.Response.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(Value)));
+                await context.HttpContext.Response.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(Value, settings)));
             }
         }
     }

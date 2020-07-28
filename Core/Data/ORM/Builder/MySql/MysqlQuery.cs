@@ -17,6 +17,14 @@ namespace Myn.Data.ORM
             this._top = num;
             return this;
         }
+
+        public override ISqlDocker CustomSql(string sql)
+        {
+            ISqlDocker q = new SqlDocker() { Sql = sql, CommandType = CommandType.Text, Parameters = null };
+            return q;
+        }
+
+
         public override ISqlDocker Build()
         {
             var sql = new StringBuilder();

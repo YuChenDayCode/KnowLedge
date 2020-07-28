@@ -51,9 +51,15 @@ namespace KnowLedge.Controllers
         public JsonResult GetQuestion()
         {
             var a = _question.GetList(null);
-            return Json(a);
+            string sql = "select cast(count(*) as signed) as Id, Tag from ( " +
+                        " select a.c_Id,substring_index(substring_index(a.c_tag, ',', b.Id), ',', -1) as Tag " +
+                        " from t_question a join t_incre b on b.Id <= (length(a.c_tag) - length(replace(a.c_tag, ',', '')) + 1) "+
+                        " order by a.c_Id) t group by Tag order by Id desc limit 10";
+            var list = _question.GetTag(sql);
+            var data = new { question = a, tag = list };
+            return JsonMsg(true, "", data);
         }
-        
+
 
         public JsonResult Ask(QuestionInsertViewModel model)
         {
@@ -62,7 +68,6 @@ namespace KnowLedge.Controllers
             bool issuu = _question.Insert(entity);
             return JsonMsg(issuu, "");
         }
-
 
         public IActionResult login()
         {

@@ -54,6 +54,6 @@ public class MySqlDbConntionConfigureItem : IDBConfig
 
     public override string ToString()
     {
-        return $"server={this.Host};user id={UserName};password={Password};persistsecurityinfo=True;port={this.Port};database={DbName};SslMode=none;Allow User Variables=True;Pooling=true;Max Pool Size=600;";
+        return $"server={this.Host};user id={UserName};password={Password};persistsecurityinfo=True;port={this.Port};database={DbName};allowPublicKeyRetrieval=True;SslMode=none;Allow User Variables=True;Pooling=true;Max Pool Size=600;";
     }
 }

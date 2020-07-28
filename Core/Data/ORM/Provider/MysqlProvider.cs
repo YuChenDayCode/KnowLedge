@@ -52,6 +52,11 @@ namespace Myn.Data.ORM
             var q = this.CreateQuery().where(exp).Top(top).Build();
             return this.dbExecute.ExecuteReader<T>(q);
         }
+        public IEnumerable<T> GetList(string sql)
+        {
+            var q = this.CreateQuery().CustomSql(sql);
+            return this.dbExecute.ExecuteReader<T>(q);
+        }
         public IEnumerable<T> GetListPage(Expression<Func<T, object>> exp, int PageIndex, int PageSize, out int TotalCount, Expression<Func<T, object>> SortField, string SortWay, Expression<Func<T, object>> SortField1, string SortWay1)
         {
             var c = this.CreateQuery().Count().where(exp).Build();
@@ -81,7 +86,7 @@ namespace Myn.Data.ORM
             int row;
             var docker = this.CreateContructor().Insert(entity).Build();
             this.dbExecute.ExecuteNonQuery(docker, out row);
-            return row ;
+            return row;
         }
         public void Insert_Return_Id(T entity, out int Id)
         {

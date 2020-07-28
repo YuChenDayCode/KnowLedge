@@ -32,11 +32,51 @@ namespace KnowLedge.Controllers
             List<CommentEntity> list = _iCommentBusiness.GetList(t => t.AnsweId == aid).ToList();
 
             List<CommentIndexViewModels> viewmodel = new List<CommentIndexViewModels>();
-            Generate(list, list.Where(t => t.Pid == 0).ToList(), viewmodel);
+            viewmodel = Generate(list, list.Where(t => t.Pid == 0).ToList());
             return JsonMsg(true, "", viewmodel);
         }
-        public void Generate(List<CommentEntity> list, List<CommentEntity> plist, List<CommentIndexViewModels> viewmodel)
+
+        public List<CommentIndexViewModels> Generate(List<CommentEntity> list, List<CommentEntity> plist)
         {
+            List<CommentIndexViewModels> lvm = new List<CommentIndexViewModels>();
+
+            foreach (var item in plist)
+            {
+                var mdoels = new CommentIndexViewModels().EntityParse(item);
+                List<CommentIndexViewModels> l = new List<CommentIndexViewModels>();
+                childcomment(list, item, l);
+                mdoels.childEntity = l.OrderBy(o => o.CreateTime).ToList();
+                lvm.Add(mdoels);
+            }
+            return lvm.OrderBy(o => o.Id).ThenBy(o => o.CreateTime).ToList();
+        }
+
+        public void childcomment(List<CommentEntity> list, CommentEntity model, List<CommentIndexViewModels> lvm)
+        {
+            var l = list.Where(t => t.Pid == model.Id).ToList();
+
+            foreach (var item in l)
+            {
+                var mdoels = new CommentIndexViewModels().EntityParse(item);
+                var a = list.Where(t => t.Pid == item.Id);
+                if (a.Count() > 0)
+                {
+                    childcomment(list, item, lvm);
+                }
+                lvm.Add(mdoels);
+            }
+
+        }
+
+        /// <summary>
+        /// 递归
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="plist"></param>
+        /// <returns></returns>
+        public List<CommentIndexViewModels> Generate_del(List<CommentEntity> list, List<CommentEntity> plist)
+        {
+            List<CommentIndexViewModels> lvm = new List<CommentIndexViewModels>();
             foreach (var item in plist)
             {
                 var mdoel = new CommentIndexViewModels().EntityParse(item);
@@ -45,18 +85,31 @@ namespace KnowLedge.Controllers
                 foreach (var citem in viewlist)
                 {
                     var e = new CommentIndexViewModels().EntityParse(citem);
-                    cm.Add(e);
                     var cc = list.Where(t => t.Pid == e.Id).ToList();
                     if (cc.Count() > 0)
-                        Generate(list, cc, viewmodel);
+                    {
+                        List<CommentIndexViewModels> temp = Generate(list, cc);
+                        e.childEntity = temp;
+                    }
+                    cm.Add(e);
+                    mdoel.childEntity = cm;
                 }
-                mdoel.childEntity = cm;
-                viewmodel.Add(mdoel);
+                lvm.Add(mdoel);
             }
+            return lvm;
+        }
 
-
-
-
+        public IActionResult AddCommentReply(CommentInsertViewModels viewmodel)
+        {
+            var model = new CommentEntity().EntityParse(viewmodel);
+            model.CreateTime = DateTime.Now;
+            var issucc = _iCommentBusiness.Insert(model);
+            if (issucc)
+            {
+                var count = _iCommentBusiness.CommentCountByAnswerId(model.AnsweId);
+                return JsonMsg(issucc,"", count);
+            }
+            return JsonMsg(false,"评论失败,请检查");
         }
 
     }

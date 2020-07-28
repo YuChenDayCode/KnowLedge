@@ -127,6 +127,9 @@ namespace Myn.Data.ORM
             return row;
         }
 
-
+        public IEnumerable<T> GetList(string sql)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

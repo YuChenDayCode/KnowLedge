@@ -28,6 +28,9 @@ namespace Myn.Data.ORM
         /// <returns>数据</returns>
         IEnumerable<T> GetList(Expression<Func<T, object>> exp, int top = -1);
 
+
+        IEnumerable<T> GetList(string sql);
+
         /// <summary>
         /// 根据条件获取条数
         /// </summary>
