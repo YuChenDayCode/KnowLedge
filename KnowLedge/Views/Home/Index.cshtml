@@ -80,7 +80,7 @@
                         <div class="layui-card-body">
                             <div class="caption-subject uppercase" style="font-size: 18px; color: #444; font-weight: 600;">
                                 <h2>
-                                    <a :href="'/Answer/Index/'+item.id" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.Title}}</a>
+                                    <a :href="'/Answer/Index/'+item.Id" :title="item.name" target="_blank" style="font-size: 18px; color: #445; font-weight: 600;">{{item.Title}}</a>
                                 </h2>
                             </div>
                             <p style="margin:15px 0 10px 0">
@@ -120,7 +120,7 @@
             <div class="cloud">
                 <h3 style="margin-top: 10px">问答标签</h3>
                 <ul>
-                    <li  v-for="tag in taglist"><a :href="'/Tag/Index/'+tag.Tag" target="_blank">{{tag.Tag}}</a></li>
+                    <li v-for="tag in taglist"><a :href="'/Tag/Index/'+tag.Tag" target="_blank">{{tag.Tag}}</a></li>
                 </ul>
             </div>
 
@@ -199,7 +199,11 @@
                     });
                 },
                 Askquestion: function () {
-                    $.post('@Url.Action("Ask")', this.question, function (data) {
+                    let data = {
+                        model: this.question,
+                        models: { "Content": "213" }
+                    };
+                    $.post('@Url.Action("Ask")', data, function (data) {
                         console.log(data);
                         if (data.Status) {
                             location.reload(true);

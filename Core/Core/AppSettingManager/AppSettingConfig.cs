@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Myn.Core.AppSettingManager
+namespace Core.Core
 {
     public class AppSettingConfig
     {

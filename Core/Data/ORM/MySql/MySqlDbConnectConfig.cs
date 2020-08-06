@@ -1,5 +1,4 @@
-﻿using Myn.Core.AppSettingManager;
-using Myn.Data.ORM;
+﻿using Myn.Data.ORM;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Concurrent;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Core.Core;
 
 namespace Myn.Data.ORM
 {

@@ -1,8 +1,0 @@
-2020-07-27 11:09:26,683 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-27 11:09:26,699 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-27 11:09:26,706 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-27 11:09:26,713 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge
-2020-07-27 11:17:22,480 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5000
-2020-07-27 11:17:22,491 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2020-07-27 11:17:22,493 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
-2020-07-27 11:17:22,495 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Hello World\.NET\KnowLedge\KnowLedge

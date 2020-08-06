@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core.Utility.Filter
 {
-    public class CustomActionFilterAttribute : Attribute, IActionFilter, IFilterMetadata, IOrderedFilter
+    public class CustomActionFi1lterAttribute : Attribute, IActionFilter, IFilterMetadata, IOrderedFilter
     {
         public int Order => throw new NotImplementedException();
 

@@ -1,4 +1,4 @@
-﻿using Myn.Core.AppSettingManager;
+﻿using Core.Core;
 using Myn.Data.ORM;
 using System;
 using System.Configuration;
