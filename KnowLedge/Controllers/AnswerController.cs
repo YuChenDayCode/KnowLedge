@@ -32,6 +32,7 @@ namespace KnowLedge.Controllers
         {
             var questionEntity = _question.Get(t => t.Id == id);
             var answerList = _answerBusiness.GetList(t => t.QuestionId == id);
+
             return Json(new { questionEntity = questionEntity, answerList = answerList });
         }
 
@@ -39,9 +40,9 @@ namespace KnowLedge.Controllers
         {
             var entity = new AnswerEntity().EntityParse(model);
             entity.CreateTime = DateTime.Now;
-            var issucc = _answerBusiness.Insert(entity);
-            if (issucc)
-                return JsonMsg(issucc, "成功");
+            var t = _answerBusiness.Insert(entity);
+            if (t.Id>0)
+                return JsonMsg(true, "成功");
             return JsonMsg(false, "失败");
         }
     }

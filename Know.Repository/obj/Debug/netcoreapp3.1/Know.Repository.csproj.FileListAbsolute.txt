@@ -10,6 +10,21 @@ C:\Hello World\.NET\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Model
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csprojAssemblyReference.cache
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfoInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CoreCompileInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CopyComplete
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.dll
 C:\Hello World\.NET\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.pdb
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.deps.json
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.dll
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Repository.pdb
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Core.dll
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Model.dll
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Know.Model.pdb
+C:\WorkSpace\KnowLedge\Know.Repository\bin\Debug\netcoreapp3.1\Core.pdb
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csprojAssemblyReference.cache
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfoInputs.cache
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.AssemblyInfo.cs
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CoreCompileInputs.cache
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.csproj.CopyComplete
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.dll
+C:\WorkSpace\KnowLedge\Know.Repository\obj\Debug\netcoreapp3.1\Know.Repository.pdb

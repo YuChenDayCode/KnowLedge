@@ -15,12 +15,12 @@ namespace Know.Business.Business
             _iAnswerRepository = iAnswerRepository;
         }
 
-        public IEnumerable<AnswerEntity> GetList(Expression<Func<AnswerEntity, object>> exp)
+        public IEnumerable<AnswerEntity> GetList(Expression<Func<AnswerEntity, bool>> exp)
         {
             return _iAnswerRepository.GetList(exp);
         }
 
-        public bool Insert(AnswerEntity model)
+        public AnswerEntity Insert(AnswerEntity model)
         {
 
             return _iAnswerRepository.Insert(model);

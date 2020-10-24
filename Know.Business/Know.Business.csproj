@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Know.IRepository\Know.IRepository.csproj" />
     <ProjectReference Include="..\Know.Repository\Know.Repository.csproj" />
   </ItemGroup>
 

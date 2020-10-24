@@ -28,6 +28,7 @@ namespace Myn.Data
         public XDocument LocalConfig(string addres)
         {
             string str = Path.IsPathRooted(addres) ? addres : System.IO.Path.GetFullPath(addres);
+            Console.WriteLine(str);
             if (!File.Exists(@addres))
                 throw new Exception("配置文件不存在！请检查生成的文件是否包含");
             return XDocument.Load(str);

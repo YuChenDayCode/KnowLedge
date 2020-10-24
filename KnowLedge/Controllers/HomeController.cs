@@ -19,21 +19,19 @@ namespace KnowLedge.Controllers
 {
     public class HomeController : BaseController
     {
-        public readonly Testbll _Testbll = null;
         public readonly QuestionBusiness _question = null;
-
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger, Testbll Testbll, QuestionBusiness question)
+        public HomeController(ILogger<HomeController> logger, QuestionBusiness question)
         {
-            _Testbll = Testbll;
             _logger = logger;
             _question = question;
+            
 
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-
+            var abc = _question.GetList(null);
             //_logger.LogDebug("Debug日志");
             //_logger.LogError("Error日志");
             //_logger.LogInformation("这是一个日志");
@@ -66,10 +64,10 @@ namespace KnowLedge.Controllers
         {
             var entity = new QuestionEntity().EntityParse(model);
             entity.CreateTime = DateTime.Now;
-            bool issuu = _question.Insert(entity);
-            return JsonMsg(issuu, "");
+            var t = _question.Insert(entity);
+            return JsonMsg(t.Id > 0, "");
         }
-     
+
 
         public IActionResult login()
         {

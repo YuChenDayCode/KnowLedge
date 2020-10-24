@@ -7,7 +7,8 @@ using System.Text;
 
 namespace Know.Repository.Repository
 {
-    public class CommentRepository: MysqlProvider<CommentEntity>, ICommentRepository
+    public class CommentRepository : BaseRepository<CommentEntity>, ICommentRepository
     {
+        public CommentRepository(IFreeSql freeSql) : base(freeSql) { }
     }
 }

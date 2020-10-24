@@ -8,6 +8,7 @@ C:\Hello World\.NET\KnowLedge\Know.IRepository\bin\Debug\netcoreapp3.1\Know.Mode
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.csprojAssemblyReference.cache
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.AssemblyInfoInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.csproj.CoreCompileInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.csproj.CopyComplete
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.dll
 C:\Hello World\.NET\KnowLedge\Know.IRepository\obj\Debug\netcoreapp3.1\Know.IRepository.pdb

@@ -1,5 +1,7 @@
-﻿using Know.IRepository.IRepository;
+﻿using Core.IOC;
+using Know.IRepository.IRepository;
 using Know.Model.Entity;
+using Know.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -14,20 +16,27 @@ namespace Know.Business.Business
             _iQuestionRepository = iQuestionRepository;
         }
 
-        public QuestionEntity Get(Expression<Func<QuestionEntity, object>> exp)
+        public QuestionEntity Get(Expression<Func<QuestionEntity, bool>> exp)
         {
-            var ss = _iQuestionRepository.Get(exp);
+            var ss = _iQuestionRepository.GetOne(exp);
             return ss;
         }
 
-        public IEnumerable<QuestionEntity> GetList(Expression<Func<QuestionEntity, object>> exp)
+        public IEnumerable<QuestionEntity> GetList(Expression<Func<QuestionEntity, bool>> exp)
         {
+            /* IIOCContainer container = new IOCContainer();
+             container.Register<IQuestionRepository, QuestionRepository>();
+
+             var a = container.Resolve<IQuestionRepository>();
+
+             */
+
             //_iQuestionRepository.Count(t=>t.Id==1,t=>t.Id);
-            int count = 0;
-            var ss = _iQuestionRepository.GetListPage(exp, 0, 10, out count, s => s.CreateTime, "Desc");
+            long count = 0;
+            var ss = _iQuestionRepository.GetListPage(exp, 0, 10, out count, s => s.CreateTime, true);
             return ss;
         }
-        public bool Insert(QuestionEntity model)
+        public QuestionEntity Insert(QuestionEntity model)
         {
             return _iQuestionRepository.Insert(model);
         }

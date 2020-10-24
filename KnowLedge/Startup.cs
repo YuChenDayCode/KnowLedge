@@ -1,4 +1,5 @@
 using Core.Core;
+using Core.Data.MyFreeSql;
 using Core.Utility.Filter;
 using Core.Utility.MiddleWare;
 using Know.Business;
@@ -19,11 +20,11 @@ namespace KnowLedge
 {
     public class Startup
     {
-        public IConfiguration _iConfiguration { get; }
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
-            _iConfiguration = configuration;
-            AppSettingConfig.Configure(configuration);
+            Configuration = configuration;
+            //AppSettingConfig.Configure(configuration);
         }
 
         /// 配置依赖关系
@@ -37,10 +38,10 @@ namespace KnowLedge
                 option.Filters.Add<CustomActionFilterAttribute>();
              });
 
+
+
             #region 注册配置文件服务
-            services.Configure<AppSetting>(_iConfiguration); //注册配置文件服务
-            //var config = new ConfigurationBuilder().AddJsonFile("jsonwnejian").Build(); //自定义json文件读取
-            //services.Configure<jsonwenjian>(_iConfiguration); 
+            //var config = new ConfigurationBuilder().AddJsonFile("json.json").Build();
             #endregion
 
 
@@ -53,28 +54,23 @@ namespace KnowLedge
             //services.AddSession();
             //services.AddResponseCaching();//使用中间件缓存页面 区别于过滤器方式缓存，可以不过view与action
 
-
-            services.AddTransient<ITest, Test>()
-                    .AddTransient<Testbll>()
-                    .AddTransient<QuestionBusiness>()
-                    .AddTransient<IQuestionRepository, QuestionRepository>()
-                    .AddTransient<AnswerBusiness>()
-                    .AddTransient<IAnswerRepository, AnswerRepository>()
-                    .AddTransient<CommentBusiness>()
-                    .AddTransient<ICommentRepository, CommentRepository>();
-
+            #region FreeSql
+            //var aa = services.Configure<FreeSqlConfig>(_iConfiguration); aa[""]
+            var freeSql = Configuration.GetSection("FreeSqlConfig").Get<FreeSqlConfig>();
+            services.AddServiceFreeSql(freeSql);
+            #endregion
         }
 
         /// <summary>
         /// 请求管道：配置请求http的处理
         /// </summary>
-        /// <param name="app"></param>
+        /// <param name="app"></param>45
         /// <param name="env"></param>
         /// <param name="options">配置文件注入</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IOptions<AppSetting> options)
         {
             //app.UseMiddleware<ContactMiddleware>(); //中间件注册
-                                                    //options.Value.mysqlconfigPath
+            //options.Value.mysqlconfigPath
                                     
             #region MyRegion
             //env.IsProduction();//开发环境 根据约定会去执行ConfigureProServices方法 \Properties\launchSettings.json 中有环境变量配置 `ASPNETCORE_ENVIRONMENT`

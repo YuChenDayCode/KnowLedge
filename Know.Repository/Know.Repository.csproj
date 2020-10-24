@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Know.IRepository\Know.IRepository.csproj" />
+    <ProjectReference Include="..\Know.Model\Know.Model.csproj" />
   </ItemGroup>
 
 </Project>

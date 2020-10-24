@@ -13,12 +13,12 @@ namespace Know.Business.Business
         {
             _iCommentRepository = iCommentRepository;
         }
-        public IEnumerable<CommentEntity> GetList(Expression<Func<CommentEntity, object>> exp)
+        public IEnumerable<CommentEntity> GetList(Expression<Func<CommentEntity, bool>> exp)
         {
             return _iCommentRepository.GetList(exp);
         }
 
-        public bool Insert(CommentEntity model)
+        public CommentEntity Insert(CommentEntity model)
         {
 
             return _iCommentRepository.Insert(model);
@@ -29,10 +29,10 @@ namespace Know.Business.Business
         /// </summary>
         /// <param name="answer_id"></param>
         /// <returns></returns>
-        public int CommentCountByAnswerId(int answer_id)
+        public int CommentCountByAnswerId(int? answer_id)
         {
-
-            return _iCommentRepository.Count(c=>c.AnsweId == answer_id);
+            return 1;
+            //return _iCommentRepository.Count(c=>c.AnsweId == answer_id);
         }
     }
 }

@@ -125,7 +125,7 @@
 
     /* ul ol 样式 */
     ul, ol {
-       /* margin: 10px 0 10px 20px;*/
+        /* margin: 10px 0 10px 20px;*/
     }
 
     .left div {
@@ -222,7 +222,9 @@
             <div class="layui-card" style="display:none;" id="showReply">
                 <div class="layui-card-body">
                     <div id="editor"></div>
-                    <div style="height:40px;"> <button id="hdbtn" @@click="AddReply()" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button></div>
+                    <div style="height:40px;">
+                        <button id="hdbtn" @@click="AddReply()" type="button" class="layui-btn layui-btn-normal" style="float:right; margin:10px  10px 0 10px;">提 交</button>
+                    </div>
                 </div>
             </div>
             <div class="layui-col-md8" style="padding-right: 16px">
@@ -274,8 +276,12 @@
                                                         <span style="padding-left:5px;"><b style="font-size:14px;">{{comment.UserName}}</b></span>
                                                     </div>
                                                     <div class="comment-body">
-                                                        <div class="comment-desc"><span>{{comment.Content}}</span></div>
-                                                        <div><a href="javascript:void(0);" @@click="CommentReplyDom($event,comment.UserName,comment.Id,item.id)">回复</a></div>
+                                                        <div class="comment-desc">
+                                                            <span>{{comment.Content}}</span>
+                                                        </div>
+                                                        <div>
+                                                            <a href="javascript:void(0);" @@click="CommentReplyDom($event,comment.UserName,comment.Id,item.id)">回复</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -288,8 +294,12 @@
                                                         <span style="padding-left:5px;"><b style="font-size:14px;">{{childcomment.UserName}}</b></span>
                                                     </div>
                                                     <div class="comment-body">
-                                                        <div class="comment-desc"><span>{{childcomment.Content}}</span></div>
-                                                        <div><a href="javascript:void(0);" @@click="CommentReplyDom($event,childcomment.UserName,childcomment.Id,item.id)">回复</a></div>
+                                                        <div class="comment-desc">
+                                                            <span>{{childcomment.Content}}</span>
+                                                        </div>
+                                                        <div>
+                                                            <a href="javascript:void(0);" @@click="CommentReplyDom($event,childcomment.UserName,childcomment.Id,item.id)">回复</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </li>

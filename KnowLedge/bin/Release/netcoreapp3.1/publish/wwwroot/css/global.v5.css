@@ -480,12 +480,13 @@ pre {
 }
 
     .autor span {
-        margin: 0 10px 0 0;
+        margin-left: 5px;
         padding-left: 0px;
     }
 
         .autor span a {
             color: #759b08;
+            font-size: 14px;
         }
 
             .autor span a:hover {
@@ -566,10 +567,10 @@ pre {
 
 /*��ǩ��*/
 .cloud {
-    width: 100%;
     clear: both;
     overflow: hidden;
-    margin: 15px 0;
+    padding:12px;
+    background-color:white;
 }
 
     .cloud h3 {

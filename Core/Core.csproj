@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FreeSql" Version="1.8.1" />
+    <PackageReference Include="FreeSql.DbContext" Version="1.8.1" />
+    <PackageReference Include="FreeSql.Provider.MySql" Version="1.8.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.8" />
     <PackageReference Include="MySql.Data" Version="8.0.21" />
     <PackageReference Include="ServiceStack.Redis" Version="5.7.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.1.58" />

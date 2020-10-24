@@ -29,7 +29,7 @@ namespace KnowLedge.Controllers
 
         public JsonResult GetCommentByAid(int aid)
         {
-            List<CommentEntity> list = _iCommentBusiness.GetList(t => t.AnsweId == aid).ToList();
+            List<CommentEntity> list = _iCommentBusiness.GetList(t => t.AnswerId == aid).ToList();
 
             List<CommentIndexViewModels> viewmodel = new List<CommentIndexViewModels>();
             viewmodel = Generate(list, list.Where(t => t.Pid == 0).ToList());
@@ -103,11 +103,11 @@ namespace KnowLedge.Controllers
         {
             var model = new CommentEntity().EntityParse(viewmodel);
             model.CreateTime = DateTime.Now;
-            var issucc = _iCommentBusiness.Insert(model);
-            if (issucc)
+            var t = _iCommentBusiness.Insert(model);
+            if (t.Id>0)
             {
-                var count = _iCommentBusiness.CommentCountByAnswerId(model.AnsweId);
-                return JsonMsg(issucc,"", count);
+                var count = _iCommentBusiness.CommentCountByAnswerId(model.AnswerId);
+                return JsonMsg(true,"", count);
             }
             return JsonMsg(false,"评论失败,请检查");
         }

@@ -1,39 +1,65 @@
-﻿using Myn.Data.ORM;
-using System;
+using FreeSql.DatabaseModel;using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using FreeSql.DataAnnotations;
 
-namespace Know.Model.Entity
-{
-    [EntityMapper_TableName("t_comment")]
-    public class CommentEntity
-    {
-        [PrimaryKey(PrimaryType.Increment)]
-        [EntityMapper_ColumnName("c_Id")]
-        public int Id { get; set; }
+namespace Know.Model.Entity {
 
-        [EntityMapper_ColumnName("c_pid")]
-        public int Pid { get; set; }
+	/// <summary>
+	/// 评论
+	/// </summary>
+	[JsonObject(MemberSerialization.OptIn), Table(Name = "t_comment", DisableSyncStructure = true)]
+	public partial class CommentEntity {
 
-        [EntityMapper_ColumnName("c_content")]
-        public string Content { get; set; }
+		[JsonProperty, Column(Name = "c_id", IsPrimary = true, IsIdentity = true)]
+		public int Id { get; set; }
 
-        [EntityMapper_ColumnName("c_user_id")]
-        public int UserId { get; set; }
+		/// <summary>
+		/// 答案id
+		/// </summary>
+		[JsonProperty, Column(Name = "c_answer_id")]
+		public int? AnswerId { get; set; }
 
-        [EntityMapper_ColumnName("c_user_name")]
-        public string UserName { get; set; }
+		/// <summary>
+		/// 赞同数
+		/// </summary>
+		[JsonProperty, Column(Name = "c_consent")]
+		public int? Consent { get; set; }
 
-        [EntityMapper_ColumnName("c_answer_id")]
-        public int AnsweId { get; set; }
+		/// <summary>
+		/// 评论内容
+		/// </summary>
+		[JsonProperty, Column(Name = "c_content", StringLength = -1)]
+		public string Content { get; set; }
 
-        [EntityMapper_ColumnName("c_consent")]
-        public int Consent { get; set; }
+		[JsonProperty, Column(Name = "c_create_time", DbType = "datetime")]
+		public DateTime CreateTime { get; set; }
 
-        [EntityMapper_ColumnName("c_create_time")]
-        public DateTime CreateTime { get; set; }
+		/// <summary>
+		/// 父id
+		/// </summary>
+		[JsonProperty, Column(Name = "c_pid")]
+		public int Pid { get; set; }
 
-        [EntityMapper_ColumnName("c_update_time")]
-        public DateTime? UpdateTime { get; set; }
-    }
+		[JsonProperty, Column(Name = "c_update_time", DbType = "datetime")]
+		public DateTime? UpdateTime { get; set; }
+
+		/// <summary>
+		/// 评论者id
+		/// </summary>
+		[JsonProperty, Column(Name = "c_user_id")]
+		public int? UserId { get; set; }
+
+		/// <summary>
+		/// 评论者
+		/// </summary>
+		[JsonProperty, Column(Name = "c_user_name", StringLength = 256)]
+		public string UserName { get; set; }
+
+	}
+
 }

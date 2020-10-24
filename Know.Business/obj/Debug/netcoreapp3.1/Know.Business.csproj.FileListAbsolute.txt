@@ -12,6 +12,23 @@ C:\Hello World\.NET\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Model.p
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csprojAssemblyReference.cache
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfoInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfo.cs
+C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csproj.CoreCompileInputs.cache
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csproj.CopyComplete
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.dll
 C:\Hello World\.NET\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.pdb
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.deps.json
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.dll
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Business.pdb
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Core.dll
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Model.dll
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Repository.dll
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Repository.pdb
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Core.pdb
+C:\WorkSpace\KnowLedge\Know.Business\bin\Debug\netcoreapp3.1\Know.Model.pdb
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csprojAssemblyReference.cache
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfoInputs.cache
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.AssemblyInfo.cs
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csproj.CoreCompileInputs.cache
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.csproj.CopyComplete
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.dll
+C:\WorkSpace\KnowLedge\Know.Business\obj\Debug\netcoreapp3.1\Know.Business.pdb
